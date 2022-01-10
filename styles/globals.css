@@ -14,3 +14,43 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "Circular";
+  src: url("/public/fonts/Circular/CircularStd-Book.otf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("/public/fonts/Circular/CircularStd-Light.otf");
+  font-style: lighter;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("/public/fonts/Circular/CircularStd-Medium.otf");
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("/public/fonts/Circular/CircularStd-Bold.otf");
+  font-style: bold;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("/public/fonts/Circular/CircularStd-Black.otf");
+  font-style: bolder;
+  font-weight: 700;
+  font-display: swap;
+}
