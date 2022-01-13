@@ -51,7 +51,7 @@ const StudentText = styled.span`
   color: #433B73;
 `
 const HeadshotImg = styled.img`
-  
+  padding-left: 10px;
 `
 export default function Home() {
 
@@ -72,7 +72,7 @@ export default function Home() {
             I'm a graduating student from BCIT's Digital Design and Development Program.
           </StudentText>
         </IntroTextCont>
-        <HeadshotCont>
+        <HeadshotCont>  
           <HeadshotImg src='/headshot-round.png'/>
         </HeadshotCont>
       </IntroCont>
