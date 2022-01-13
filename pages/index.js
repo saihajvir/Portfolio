@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
 import ThemeButton from '../comps/ThemeButton'
 import { useTheme } from '../utils/provider'
+import { comp_themes } from '../utils/variables'
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,13 +20,14 @@ const Wrapper = styled.div`
 const IntroCont = styled.div`
   display: flex;
   flex-direction: row;
-  height: 40vh;
+  height: 50vh;
   width: 100%;
   /* background-color: yellow; */
 `
 const HeadshotCont = styled.div`
   display: flex;
   /* background-color: green; */
+  align-items: flex-start;
   flex: 1;
 `
 const IntroTextCont = styled.div`
@@ -41,17 +43,27 @@ const HeaderText = styled.span`
   font-size: 6.5vw;
   text-align: right;
   color: #00000000;
+  white-space: pre;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #433B73;
+  -webkit-text-stroke-color: ${props=>props.color};
 `
 const StudentText = styled.span`
   font-family: 'Circular';
   font-weight: bold;
   font-size: 2.3vw;
-  color: #433B73;
+  color: ${props=>props.color};
+  white-space: pre;
+`
+const DescriptionText = styled.p`
+  font-family: 'Circular';
+  font-weight: normal;
+  font-size: 1vw;
+  color: ${props=>props.color};
 `
 const HeadshotImg = styled.img`
   padding-left: 10px;
+  width: 100%;
+  object-fit: contain;
 `
 export default function Home() {
 
@@ -65,12 +77,18 @@ export default function Home() {
     <Wrapper>
       <IntroCont>
         <IntroTextCont>
-          <HeaderText>
+          <HeaderText color={comp_themes[theme].text_color}>
             Hello,<br/>I'm Saihaj
           </HeaderText>
-          <StudentText>
-            I'm a graduating student from BCIT's Digital Design and Development Program.
+          <StudentText 
+            color={comp_themes[theme].text_color}
+          >
+            I'm a graduating student <br/>from BCIT's Digital Design <br/>and Development Program.
           </StudentText>
+
+          <DescriptionText color={comp_themes[theme].text_color}>
+            I’m a Front End Developer who also has a strong understanding of UX/UI Design principles.
+          </DescriptionText>
         </IntroTextCont>
         <HeadshotCont>  
           <HeadshotImg src='/headshot-round.png'/>
