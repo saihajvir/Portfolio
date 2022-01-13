@@ -15,7 +15,7 @@ a {
   box-sizing: border-box;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Circular";
   src: url("/public/fonts/Circular/CircularStd-Book.otf");
   font-style: normal;
@@ -53,4 +53,4 @@ a {
   font-style: bolder;
   font-weight: 700;
   font-display: swap;
-}
+} */
