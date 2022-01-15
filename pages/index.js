@@ -57,8 +57,9 @@ const StudentText = styled.span`
 const DescriptionText = styled.p`
   font-family: 'Circular';
   font-weight: normal;
-  font-size: 1vw;
+  font-size: 1.8vw;
   color: ${props=>props.color};
+  white-space: pre;
 `
 const HeadshotImg = styled.img`
   padding-left: 10px;
@@ -87,7 +88,7 @@ export default function Home() {
           </StudentText>
 
           <DescriptionText color={comp_themes[theme].text_color}>
-            I’m a Front End Developer who also has a strong understanding of UX/UI Design principles.
+            I’m a Front End Developer who also <br/>has a strong understanding of UX/UI <br/>Design principles.
           </DescriptionText>
         </IntroTextCont>
         <HeadshotCont>  

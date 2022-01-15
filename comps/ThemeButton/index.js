@@ -9,6 +9,7 @@ const Button = styled.button`
     color: ${props=>props.color};
     border-radius: 10px;
     border: none;
+
 `
 
 export default function ThemeButton({
