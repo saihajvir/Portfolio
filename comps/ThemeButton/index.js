@@ -9,7 +9,9 @@ const Button = styled.button`
     color: ${props=>props.color};
     border-radius: 10px;
     border: none;
-
+    :hover {
+        cursor: pointer;
+    }
 `
 
 export default function ThemeButton({

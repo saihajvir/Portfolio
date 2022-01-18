@@ -14,6 +14,7 @@ import { useTheme } from '../utils/provider'
 import { comp_themes } from '../utils/variables'
 import FrefurnishBox from '../comps/FrefurnishBox'
 import EcoutureBox from '../comps/EcoutureBox'
+import NavBar from '../comps/NavBar'
 
 const Wrapper = styled.div`
   display: flex;
@@ -104,11 +105,10 @@ export default function Home() {
   const {theme, setTheme} = useTheme();
 
   return <>
-      <ThemeButton
-        buttonText={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-        onSwitchClick={()=>setTheme(theme === 'dark' ? 'default' : 'dark')}
-      />
     <Wrapper>
+    <NavBar>
+      
+    </NavBar>
       <IntroCont>
         <IntroTextCont>
           <HeaderText color={comp_themes[theme].text_color}>

@@ -5,8 +5,7 @@ import { comp_themes } from "../../utils/variables";
 
 const Cont = styled.div`
     display: flex;
-    width: 500px;
-    height: 500px;
+    width: 48%;
     border-radius: 25px;
     background-color: ${props=>props.bgcolor};
     margin: 5px;
@@ -14,6 +13,11 @@ const Cont = styled.div`
         transition: 1s;
         background: linear-gradient(300deg, #51B27E, #3884FF);
         cursor: pointer;
+    }
+    :after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
     }
 `
 const ImageCont = styled.div`
@@ -27,13 +31,13 @@ const InfoCont = styled.div`
     padding: 10px;
 `
 const Image = styled.img`
-    width: 200px;
+    width: 80%;
     height: auto;
     object-fit: contain;
 `
 const Title = styled.span`
     font-family: "Circular";
-    font-size: 52px;
+    font-size: 2.5vw;
     font-weight: bold;
     font-style: normal;
     text-align: left;
@@ -42,7 +46,7 @@ const Title = styled.span`
 `
 const Info = styled.span`
     font-family: "Circular";
-    font-size: 20px;
+    font-size: 1vw;
     font-weight: normal;
     text-align: left;
     width: 100%;
