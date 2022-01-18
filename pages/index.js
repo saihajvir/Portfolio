@@ -1,15 +1,23 @@
 import Head from 'next/head'
 import Link from 'next/link'
-
 import Image from 'next/image'
+
 import styles from '../styles/Home.module.css'
 import styled from 'styled-components'
+
+
 import ThemeButton from '../comps/ThemeButton'
+import ScrollHeader from '../comps/ScrollHeader'
+
+
 import { useTheme } from '../utils/provider'
 import { comp_themes } from '../utils/variables'
+import FrefurnishBox from '../comps/FrefurnishBox'
+import EcoutureBox from '../comps/EcoutureBox'
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 60vw;
   margin: 0 auto;
@@ -66,6 +74,31 @@ const HeadshotImg = styled.img`
   width: 100%;
   object-fit: contain;
 `
+
+const WorkWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 60vw;
+  margin: 0 auto;
+`
+const HeadingCont = styled.div`
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  width: 100vw;
+`
+const WorkCont = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 60vh;
+  width: 100%;
+`
+
 export default function Home() {
 
   const {theme, setTheme} = useTheme();
@@ -95,6 +128,22 @@ export default function Home() {
           <HeadshotImg src='/headshot-round.png'/>
         </HeadshotCont>
       </IntroCont>
+
     </Wrapper>
+
+    <WorkWrapper>
+
+      <WorkCont>
+        <HeadingCont>
+          <ScrollHeader scrollText='Work'/>
+        </HeadingCont>
+
+        <FrefurnishBox/>
+        <EcoutureBox/>
+
+      </WorkCont>
+    </WorkWrapper>
+
+  
   </>
 }

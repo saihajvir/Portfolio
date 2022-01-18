@@ -36,7 +36,15 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "TT Travels Next";
     src: url("/fonts/TT Travels Next/TT Travels Next ExtraBold.otf");
+    font-style: normal;
     font-weight: bolder;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "TT Travels Next";
+    src: url("/fonts/TT Travels Next/TT Travels Next Bold.otf");
+    font-style: normal;
+    font-weight: bold;
     font-display: swap;
   }
 `;
