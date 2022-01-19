@@ -105,6 +105,7 @@ const TextCont = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  direction: ${props=>props.dir};
 `
 const SmallHeading = styled.h2`
   font-family: 'Circular';
@@ -125,6 +126,7 @@ const SmallText = styled.p`
 
 const ExpCont = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
 `
 export default function Home() {
@@ -173,69 +175,74 @@ export default function Home() {
 
     <WorkWrapper bgcolor='none'>
       <HeadingCont>
-        <ScrollHeader scrollText="About Me"/>
+        <ScrollHeader scrollText="Résumé"/>
       </HeadingCont>
-      <TextCont>
-      
-      <ExpCont>
-        <SmallHeading color={comp_themes[theme].text_color}>
-          Profile
-        </SmallHeading>
+      <WorkCont>
+        <TextCont dir="ltr">
+        
+        <ExpCont>
+          <SmallHeading color={comp_themes[theme].text_color}>
+            Work Experience
+          </SmallHeading>
 
-          <ExperienceText 
-            role_text="Specialist,"
-            place_text="Apple Guildford Town Centre"
-            date_text="August 2021 — October 2021"
-          />
+            <ExperienceText 
+              role_text="Specialist,"
+              place_text="Apple Guildford Town Centre"
+              date_text="August 2021 — October 2021"
+            />
+            <br/>
+            <ExperienceText 
+              role_text="Designated Sales Associate,"
+              place_text="Nordstrom PC"
+              date_text="March 2017 — August 2020"
+            />
+        </ExpCont>
+        
+        <ExpCont>
+          <SmallHeading color={comp_themes[theme].text_color}>
+            Education
+          </SmallHeading>
 
-          <ExperienceText 
-            role_text="Designated Sales Associate,"
-            place_text="Nordstrom PC"
-            date_text="March 2017 — August 2020"
-          />
-      </ExpCont>
-      <ExpCont>
-        <SmallHeading color={comp_themes[theme].text_color}>
-          Education
-        </SmallHeading>
+            <ExperienceText
+              role_text="Digital Design and Development,"
+              place_text="BCIT"
+              date_text="September 2020 — Present"
+            />
+        </ExpCont>
+        
+        </TextCont>
 
-          <ExperienceText
-            role_text="Digital Design and Development,"
-            place_text="BCIT"
-            date_text="September 2020 — Present"
-          />
-      </ExpCont>
-      <ExpCont>
-        <SmallHeading color={comp_themes[theme].text_color}>
-          Skills
-        </SmallHeading>
-          <SmallText color={comp_themes[theme].text_color}>
-            Front End Development <br/>
-            Databasing <br/>
-            UX/UI Design <br/>
-            Wireframing <br/>
-            Prototyping
-          </SmallText>
-      </ExpCont>
+        <TextCont dir="rtl">
+          <ExpCont>
+            <SmallHeading color={comp_themes[theme].text_color}>
+              Skills
+            </SmallHeading>
+              <SmallText color={comp_themes[theme].text_color}>
+                Front End Development <br/>
+                Databasing <br/>
+                UX/UI Design <br/>
+                Wireframing <br/>
+                Prototyping
+              </SmallText>
+          </ExpCont>
 
-      <ExpCont>
-        <SmallHeading color={comp_themes[theme].text_color}>
-          Tools
-        </SmallHeading>
-          <SmallText color={comp_themes[theme].text_color}>
-            HTML, CSS, JavaScript <br/>
-            React, Next.JS, React-Native <br/>
-            Photoshop <br/>
-            Illustrator <br/>
-            Figma <br/>
-            After Effects <br/>
-            Visual Studio Code
-          </SmallText>
-      </ExpCont>
-      </TextCont>
-      <TextCont>
+          <ExpCont>
+            <SmallHeading color={comp_themes[theme].text_color}>
+              Tools
+            </SmallHeading>
+              <SmallText color={comp_themes[theme].text_color}>
+                HTML, CSS, JavaScript <br/>
+                React, Next.JS, React-Native <br/>
+                Photoshop <br/>
+                Illustrator <br/>
+                Figma <br/>
+                After Effects <br/>
+                Visual Studio Code
+              </SmallText>
+          </ExpCont>
 
-      </TextCont>
+        </TextCont>
+      </WorkCont>
 
     </WorkWrapper>
 
