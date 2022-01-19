@@ -96,7 +96,7 @@ const WorkCont = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   height: 60vh;
   width: 100%;
@@ -135,29 +135,27 @@ export default function Home() {
 
   return <>
     <Wrapper>
-    <NavBar>
-      
-    </NavBar>
+    <NavBar />
       <IntroCont>
         <IntroTextCont>
           <HeaderText color={comp_themes[theme].text_color}>
             Hello,<br/>I'm Saihaj
           </HeaderText>
-          <StudentText 
-            color={comp_themes[theme].text_color}
-          >
+
+          <StudentText color={comp_themes[theme].text_color}>
             I'm a graduating student <br/>from BCIT's Digital Design <br/>and Development Program.
           </StudentText>
 
           <DescriptionText color={comp_themes[theme].text_color}>
             I’m a Front End Developer who also <br/>has a strong understanding of UX/UI <br/>Design principles.
           </DescriptionText>
+
         </IntroTextCont>
+
         <HeadshotCont>  
           <HeadshotImg src='/headshot-round.png'/>
         </HeadshotCont>
       </IntroCont>
-
     </Wrapper>
 
     <WorkWrapper bgcolor='none'>
@@ -193,7 +191,7 @@ export default function Home() {
             <br/>
             <ExperienceText 
               role_text="Designated Sales Associate,"
-              place_text="Nordstrom PC"
+              place_text="Nordstrom Pacific Centre"
               date_text="March 2017 — August 2020"
             />
         </ExpCont>
