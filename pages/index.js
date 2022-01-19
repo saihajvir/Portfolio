@@ -83,6 +83,7 @@ const WorkWrapper = styled.div`
   height: 100vh;
   width: 60vw;
   margin: 0 auto;
+  background-color: ${props=>props.bgcolor};
 `
 const HeadingCont = styled.div`
   display: flex;
@@ -98,6 +99,18 @@ const WorkCont = styled.div`
   flex-wrap: wrap;
   height: 60vh;
   width: 100%;
+`
+const TextCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`
+const SmallHeading = styled.h2`
+  font-family: 'Circular';
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 3vw;
+  color: ${props=>props.color};
 `
 
 export default function Home() {
@@ -131,7 +144,7 @@ export default function Home() {
 
     </Wrapper>
 
-    <WorkWrapper>
+    <WorkWrapper bgcolor='none'>
 
       <WorkCont>
         <HeadingCont>
@@ -142,6 +155,19 @@ export default function Home() {
         <EcoutureBox/>
 
       </WorkCont>
+    </WorkWrapper>
+
+    <WorkWrapper bgcolor='none'>
+      <HeadingCont>
+        <ScrollHeader scrollText="About Me"/>
+      </HeadingCont>
+      <TextCont>
+        <SmallHeading color={comp_themes[theme].text_color}>
+          Profile
+        </SmallHeading>
+      </TextCont>
+      <TextCont></TextCont>
+
     </WorkWrapper>
 
   
