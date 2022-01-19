@@ -1,20 +1,21 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import styles from '../styles/Home.module.css'
-import styled from 'styled-components'
-
-
-import ThemeButton from '../comps/ThemeButton'
-import ScrollHeader from '../comps/ScrollHeader'
+import styles from '../styles/Home.module.css';
+import styled from 'styled-components';
 
 
-import { useTheme } from '../utils/provider'
-import { comp_themes } from '../utils/variables'
-import FrefurnishBox from '../comps/FrefurnishBox'
-import EcoutureBox from '../comps/EcoutureBox'
-import NavBar from '../comps/NavBar'
+import ThemeButton from '../comps/ThemeButton';
+import ScrollHeader from '../comps/ScrollHeader';
+import FrefurnishBox from '../comps/FrefurnishBox';
+import EcoutureBox from '../comps/EcoutureBox';
+import NavBar from '../comps/NavBar';
+import ExperienceText from '../comps/ExperienceText';
+
+
+import { useTheme } from '../utils/provider';
+import { comp_themes } from '../utils/variables';
 
 const Wrapper = styled.div`
   display: flex;
@@ -107,12 +108,25 @@ const TextCont = styled.div`
 `
 const SmallHeading = styled.h2`
   font-family: 'Circular';
+  margin-bottom: 10px;
   font-style: normal;
   font-weight: bolder;
   font-size: 3vw;
   color: ${props=>props.color};
 `
+const SmallText = styled.p`
+  font-family: 'Circular';
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2vw;
+  color: ${props=>props.color};
+`
 
+const ExpCont = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 export default function Home() {
 
   const {theme, setTheme} = useTheme();
@@ -162,11 +176,66 @@ export default function Home() {
         <ScrollHeader scrollText="About Me"/>
       </HeadingCont>
       <TextCont>
+      
+      <ExpCont>
         <SmallHeading color={comp_themes[theme].text_color}>
           Profile
         </SmallHeading>
+
+          <ExperienceText 
+            role_text="Specialist,"
+            place_text="Apple Guildford Town Centre"
+            date_text="August 2021 — October 2021"
+          />
+
+          <ExperienceText 
+            role_text="Designated Sales Associate,"
+            place_text="Nordstrom PC"
+            date_text="March 2017 — August 2020"
+          />
+      </ExpCont>
+      <ExpCont>
+        <SmallHeading color={comp_themes[theme].text_color}>
+          Education
+        </SmallHeading>
+
+          <ExperienceText
+            role_text="Digital Design and Development,"
+            place_text="BCIT"
+            date_text="September 2020 — Present"
+          />
+      </ExpCont>
+      <ExpCont>
+        <SmallHeading color={comp_themes[theme].text_color}>
+          Skills
+        </SmallHeading>
+          <SmallText color={comp_themes[theme].text_color}>
+            Front End Development <br/>
+            Databasing <br/>
+            UX/UI Design <br/>
+            Wireframing <br/>
+            Prototyping
+          </SmallText>
+      </ExpCont>
+
+      <ExpCont>
+        <SmallHeading color={comp_themes[theme].text_color}>
+          Tools
+        </SmallHeading>
+          <SmallText color={comp_themes[theme].text_color}>
+            HTML, CSS, JavaScript <br/>
+            React, Next.JS, React-Native <br/>
+            Photoshop <br/>
+            Illustrator <br/>
+            Figma <br/>
+            After Effects <br/>
+            Visual Studio Code
+          </SmallText>
+      </ExpCont>
       </TextCont>
-      <TextCont></TextCont>
+      <TextCont>
+
+      </TextCont>
 
     </WorkWrapper>
 

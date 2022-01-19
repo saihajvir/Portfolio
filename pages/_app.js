@@ -28,6 +28,20 @@ const GlobalStyle = createGlobalStyle`
   }
   @font-face {
     font-family: "Circular";
+    src: url("/fonts/Circular/CircularStd-Light Italic.otf");
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Circular";
+    src: url("/fonts/Circular/CircularStd-BookItalic.otf");
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Circular";
     src: url("/fonts/Circular/CircularStd-BoldItalic.otf");
     font-style: italic;
     font-weight: bold;

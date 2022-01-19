@@ -71,6 +71,7 @@ export default function FrefurnishBox()
                         Frefurnish
                     </Title>
                     <Info color={comp_themes[theme].box_text_color}>
+                        Lead Developer <br/>
                         Front End Development <br/>
                         Back End Development <br/>
                         UX/UI Design

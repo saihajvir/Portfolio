@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { useTheme } from "../../utils/provider"
+import { useTheme } from "../../utils/provider";
 import { themes } from "../../utils/variables";
 import { comp_themes } from "../../utils/variables";
 
