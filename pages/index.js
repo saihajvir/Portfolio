@@ -37,6 +37,7 @@ const IntroCont = styled.div`
 const HeadshotCont = styled.div`
   display: flex;
   /* background-color: green; */
+  margin-top: 20px;
   align-items: flex-start;
   flex: 1;
 `
@@ -50,8 +51,8 @@ const HeaderText = styled.span`
   font-family: 'Circular';
   font-weight: bold;
   font-style: italic;
-  font-size: 6.5vw;
-  text-align: right;
+  font-size: calc(36px + 4vw);
+  text-align: left;
   color: #00000000;
   white-space: pre;
   -webkit-text-stroke-width: 1px;
@@ -60,20 +61,22 @@ const HeaderText = styled.span`
 const StudentText = styled.span`
   font-family: 'Circular';
   font-weight: bold;
-  font-size: 2.3vw;
+  font-size: calc(16px + 1vw);
   color: ${props=>props.color};
   white-space: pre;
 `
 const DescriptionText = styled.p`
   font-family: 'Circular';
   font-weight: normal;
-  font-size: 1.8vw;
+  font-size: calc(12px + 0.7vw);
   color: ${props=>props.color};
   white-space: pre;
 `
 const HeadshotImg = styled.img`
   padding-left: 10px;
   width: 100%;
+  min-width: 300px;
+  max-width: 500px;
   object-fit: contain;
 `
 
@@ -83,6 +86,7 @@ const WorkWrapper = styled.div`
   justify-content: center;
   height: 100vh;
   width: 60vw;
+  min-width: ${props=>props.minWidth};
   margin: 0 auto;
   background-color: ${props=>props.bgcolor};
 `
@@ -112,7 +116,7 @@ const SmallHeading = styled.h2`
   margin-bottom: 10px;
   font-style: normal;
   font-weight: bolder;
-  font-size: 3vw;
+  font-size: calc(16px + 2vw);
   color: ${props=>props.color};
 `
 const SmallText = styled.p`
@@ -120,7 +124,7 @@ const SmallText = styled.p`
   margin: 0;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.2vw;
+  font-size: calc(12px + 0.5vw);
   color: ${props=>props.color};
 `
 
@@ -129,7 +133,9 @@ const ExpCont = styled.div`
   flex: 1;
   flex-direction: column;
 `
-export default function Home() {
+export default function Home({
+  minWidth="none"
+}) {
 
   const {theme, setTheme} = useTheme();
 
@@ -158,7 +164,7 @@ export default function Home() {
       </IntroCont>
     </Wrapper>
 
-    <WorkWrapper bgcolor='none'>
+    <WorkWrapper bgcolor='none' minWidth="none" id="work">
 
       <WorkCont>
         <HeadingCont>
@@ -171,7 +177,7 @@ export default function Home() {
       </WorkCont>
     </WorkWrapper>
 
-    <WorkWrapper bgcolor='none'>
+    <WorkWrapper bgcolor='none' id="resume">
       <HeadingCont>
         <ScrollHeader scrollText="Résumé"/>
       </HeadingCont>

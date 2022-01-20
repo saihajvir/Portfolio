@@ -9,7 +9,7 @@ const ExpText = styled.span`
   font-family: 'Circular';
   font-style: ${props=>props.fontStyle};
   font-weight: ${props=>props.fontWeight};
-  font-size: 1.2vw;
+  font-size: calc(12px + 0.5vw);
   color: ${props=>props.color};
 `
 export default function ExperienceText({

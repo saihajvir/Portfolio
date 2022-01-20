@@ -5,7 +5,7 @@ import { comp_themes } from "../../utils/variables";
 
 const Cont = styled.div`
     display: flex;
-    width: 48%;
+    width: calc(225px + 24%);
     border-radius: 25px;
     background-color: ${props=>props.bgcolor};
     margin: 5px;
@@ -37,7 +37,7 @@ const Image = styled.img`
 `
 const Title = styled.span`
     font-family: "Circular";
-    font-size: 2.5vw;
+    font-size: calc(12px + 2vw);
     font-weight: bold;
     font-style: normal;
     text-align: left;
@@ -46,7 +46,7 @@ const Title = styled.span`
 `
 const Info = styled.span`
     font-family: "Circular";
-    font-size: 1vw;
+    font-size: calc(12px + 0.3vw);
     font-weight: normal;
     text-align: left;
     width: 100%;

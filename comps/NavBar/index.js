@@ -48,8 +48,8 @@ export default function NavBar()
                 saihaj.dev
             </LeftCont>
             <RightCont>
-                <MenuItem color={comp_themes[theme].text_color}><Link href="">Work</Link></MenuItem>
-                <MenuItem color={comp_themes[theme].text_color}><Link href="">Resume</Link></MenuItem>
+                <MenuItem color={comp_themes[theme].text_color}><Link href="/#work">Work</Link></MenuItem>
+                <MenuItem color={comp_themes[theme].text_color}><Link href="/#resume">Resume</Link></MenuItem>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="">About</Link></MenuItem>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="">Contact</Link></MenuItem>
                 <ThemeButton

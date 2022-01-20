@@ -3,7 +3,7 @@ import { useTheme } from "../../utils/provider"
 import { comp_themes } from "../../utils/variables";
 
 const Text = styled.span`
-    font-size: 6vw;
+    font-size: calc(36px + 4vw);
     font-family: 'Circular';
     font-weight: bold;
     font-style: italic;
