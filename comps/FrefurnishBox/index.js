@@ -5,7 +5,7 @@ import { comp_themes } from "../../utils/variables";
 
 const Cont = styled.div`
     display: flex;
-    width: calc(225px + 24%);
+    width: calc(150px + 24%);
     border-radius: 25px;
     background-color: ${props=>props.bgcolor};
     margin: 5px;
@@ -19,6 +19,9 @@ const Cont = styled.div`
         display: block;
         padding-bottom: 100%;
     }
+    @media (max-width:1000px) {
+        width: 100%;
+    }
 `
 const ImageCont = styled.div`
     display: flex;
@@ -31,7 +34,7 @@ const InfoCont = styled.div`
     padding: 10px;
 `
 const Image = styled.img`
-    width: 90%;
+    width: 150%;
     height: auto;
     object-fit: contain;
 `

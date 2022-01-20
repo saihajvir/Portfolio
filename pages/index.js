@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
-
+import { motion } from 'framer-motion';
 
 import ThemeButton from '../comps/ThemeButton';
 import ScrollHeader from '../comps/ScrollHeader';
@@ -17,10 +18,13 @@ import ExperienceText from '../comps/ExperienceText';
 import { useTheme } from '../utils/provider';
 import { comp_themes } from '../utils/variables';
 
+import {data} from '../data/data';
+import CustomCursor from '../comps/CustomCursor';
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 60vw;
   margin: 0 auto;
   background-color: ${props=>props.bg};
@@ -30,16 +34,17 @@ const Wrapper = styled.div`
 const IntroCont = styled.div`
   display: flex;
   flex-direction: row;
-  height: 50vh;
+  min-height: 50vh;
   width: 100%;
   /* background-color: yellow; */
 `
-const HeadshotCont = styled.div`
+const HeadshotCont = styled(motion.div)`
   display: flex;
   /* background-color: green; */
   margin-top: 20px;
   align-items: flex-start;
   flex: 1;
+  
 `
 const IntroTextCont = styled.div`
   display: flex;
@@ -52,6 +57,7 @@ const HeaderText = styled.span`
   font-weight: bold;
   font-style: italic;
   font-size: calc(36px + 4vw);
+  line-height: 100%;
   text-align: left;
   color: #00000000;
   white-space: pre;
@@ -84,7 +90,7 @@ const WorkWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 60vw;
   min-width: ${props=>props.minWidth};
   margin: 0 auto;
@@ -102,7 +108,7 @@ const WorkCont = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  height: 60vh;
+  min-height: 60vh;
   width: 100%;
 `
 const TextCont = styled.div`
@@ -140,6 +146,7 @@ export default function Home({
   const {theme, setTheme} = useTheme();
 
   return <>
+    {/* <CustomCursor/> */}
     <Wrapper>
     <NavBar />
       <IntroCont>
@@ -158,7 +165,11 @@ export default function Home({
 
         </IntroTextCont>
 
-        <HeadshotCont>  
+        <HeadshotCont   
+          drag="x"
+          dragConstraints={{ left: -100, right: 100 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}>  
           <HeadshotImg src='/headshot-round.png'/>
         </HeadshotCont>
       </IntroCont>
@@ -250,6 +261,25 @@ export default function Home({
 
     </WorkWrapper>
 
+    <WorkWrapper id="about">
+      <HeadingCont>
+        <ScrollHeader scrollText="About"/>
+      </HeadingCont>
+
+      <SmallHeading color={comp_themes[theme].text_color}>
+        Profile
+      </SmallHeading>
+
+
+      {data.map((o, i)=>
+
+        <SmallText color={comp_themes[theme].text_color} key={i}>
+          {o.profile}
+        </SmallText>
+      
+      )}
+
+    </WorkWrapper>
   
   </>
 }
