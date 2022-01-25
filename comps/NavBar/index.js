@@ -45,7 +45,7 @@ export default function NavBar()
             <LeftCont
                 color={comp_themes[theme].text_color}
             >
-                saihaj.dev
+                Saihaj Gill
             </LeftCont>
             <RightCont>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="/#work">Work</Link></MenuItem>

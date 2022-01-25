@@ -14,17 +14,18 @@ import EcoutureBox from '../comps/EcoutureBox';
 import NavBar from '../comps/NavBar';
 import ExperienceText from '../comps/ExperienceText';
 
-
 import { useTheme } from '../utils/provider';
 import { comp_themes } from '../utils/variables';
 
 import {data} from '../data/data';
 import CustomCursor from '../comps/CustomCursor';
+import DownloadButton from '../comps/DownloadButton';
+import ContactForm from '../comps/ContactForm';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   width: 60vw;
   margin: 0 auto;
   background-color: ${props=>props.bg};
@@ -34,7 +35,7 @@ const Wrapper = styled.div`
 const IntroCont = styled.div`
   display: flex;
   flex-direction: row;
-  min-height: 50vh;
+  min-height: 30vh;
   width: 100%;
   /* background-color: yellow; */
 `
@@ -85,7 +86,6 @@ const HeadshotImg = styled.img`
   max-width: 500px;
   object-fit: contain;
 `
-
 const WorkWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -146,7 +146,7 @@ export default function Home({
   const {theme, setTheme} = useTheme();
 
   return <>
-    {/* <CustomCursor/> */}
+    <CustomCursor/>
     <Wrapper>
     <NavBar />
       <IntroCont>
@@ -224,7 +224,6 @@ export default function Home({
               date_text="September 2020 — Present"
             />
         </ExpCont>
-        
         </TextCont>
 
         <TextCont dir="rtl">
@@ -258,7 +257,7 @@ export default function Home({
 
         </TextCont>
       </WorkCont>
-
+      <DownloadButton/>
     </WorkWrapper>
 
     <WorkWrapper id="about">
@@ -270,15 +269,24 @@ export default function Home({
         Profile
       </SmallHeading>
 
-
-      {data.map((o, i)=>
-
+      {data.map((data, i)=>
         <SmallText color={comp_themes[theme].text_color} key={i}>
-          {o.profile}
+          {data.profile}
         </SmallText>
-      
       )}
 
+      <SmallHeading color={comp_themes[theme].text_color}>
+        What can I do?
+      </SmallHeading>
+
+      {data.map((data, i)=>
+        <SmallText color={comp_themes[theme].text_color} key={i}>
+          {data.skill_desc}
+        </SmallText>
+      )}
+
+
+        <ContactForm/>
     </WorkWrapper>
   
   </>

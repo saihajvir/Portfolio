@@ -2,16 +2,15 @@ import Link from "next/link";
 import styled from "styled-components";
 import { useTheme } from "../../utils/provider"
 import { comp_themes } from "../../utils/variables";
+import { motion } from "framer-motion";
 
-const Cont = styled.div`
+const Cont = styled(motion.div)`
     display: flex;
-    width: calc(150px + 24%);
+    width: calc(150px + 30%);
     border-radius: 25px;
     background-color: ${props=>props.bgcolor};
     margin: 5px;
     :hover {
-        transition: 1s;
-        background: linear-gradient(300deg, #EEAB93, #92A8F8);
         cursor: pointer;
     }
     :after {
@@ -19,13 +18,15 @@ const Cont = styled.div`
         display: block;
         padding-bottom: 100%;
     }
-    @media (max-width:1000px) {
+    @media (max-width:1400px) {
         width: 100%;
+        height: 40vh;
+        padding: 10px;
     }
 `
 const ImageCont = styled.div`
     display: flex;
-    flex: 1.5;
+    flex: 1;
 `
 const InfoCont = styled.div`
     display: flex;
@@ -34,7 +35,7 @@ const InfoCont = styled.div`
     padding: 10px;
 `
 const Image = styled.img`
-    width: 150%;
+    width: 130%;
     height: auto;
     object-fit: contain;
 `
@@ -65,6 +66,11 @@ export default function FrefurnishBox()
             <Cont
                 bgcolor={comp_themes[theme].box_color}
                 color={comp_themes[theme].box_text_color}
+
+                drag="x"
+                dragConstraints={{ left: -100, right: 100 }}
+                whileHover={{ scale: 1.1, background: "linear-gradient(300deg, #EEAB93, #92A8F8)"}}
+                whileTap={{ scale: 0.9 }}
             >
                 <ImageCont>
                     <Image src="/frefurnish-iphone.png"/>

@@ -6,7 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  /* cursor: none; */
+  cursor: none;
 }
 
 a {
@@ -21,13 +21,17 @@ a {
 /* CUSTOM CURSOR CSS */
 
 .cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid  #433B73;
+  width: 30px;
+  height: 30px;
+  /* border: 2px solid  #433B73; */
   border-radius: 50%;
+  background-color: black;
+  opacity: 50%;
   position: absolute;
   pointer-events: none;
+  z-index: 10000;
   }
+  
   /* .cursor::after {
   content: "";
   width: 20px;
@@ -53,4 +57,12 @@ a {
   }
   .expand {
   animation: cursorAnim .5s forwards;
+  }
+
+
+  *{
+    -ms-overflow-style: none;
+  }
+  ::-webkit-scrollbar {
+      display: none;
   }
