@@ -15,7 +15,6 @@ const NavCont = styled.div`
     position: fixed;
     top: 0;
     background-color: ${props=>props.bgcolor};
-
     font-family: 'Circular';
 `
 const LeftCont = styled.div`
@@ -25,7 +24,6 @@ const LeftCont = styled.div`
     color: ${props=>props.color};
 
 `
-
 const RightCont = styled.div`
     display: flex;
     flex: 2;

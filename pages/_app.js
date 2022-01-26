@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
   return <AppProvider>
     <div>
       <Head>
-        <title>Saihaj Gill</title>
+        <title>Saihajvir Gill</title>
       </Head>
     </div>
   <GlobalStyle />
