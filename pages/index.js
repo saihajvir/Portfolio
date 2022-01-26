@@ -21,6 +21,9 @@ import {data} from '../data/data';
 import CustomCursor from '../comps/CustomCursor';
 import DownloadButton from '../comps/DownloadButton';
 import ContactForm from '../comps/ContactForm';
+import RecordSvg from '../comps/RecordSvg';
+import CameraSvg from '../comps/CameraSvg';
+import WatchSvg from '../comps/WatchSvg';
 
 const Wrapper = styled.div`
   display: flex;
@@ -139,6 +142,16 @@ const ExpCont = styled.div`
   flex: 1;
   flex-direction: column;
 `
+
+const SvgCont = styled.div`
+  display: flex;
+  margin-top: 20px;
+  min-height: 40vh;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+`
+
 export default function Home({
   minWidth="none"
 }) {
@@ -285,8 +298,20 @@ export default function Home({
         </SmallText>
       )}
 
+      <SvgCont>
+        <RecordSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
+        <CameraSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
+        <WatchSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
+      </SvgCont>
+    </WorkWrapper>
+
+    <WorkWrapper id="contact">
+      <HeadingCont>
+        <ScrollHeader scrollText="Contact"/>
+      </HeadingCont>
 
         <ContactForm/>
+
     </WorkWrapper>
   
   </>

@@ -15,7 +15,9 @@ export const comp_themes = {
         text_color: "#433B73",
         box_color: "#433B73",
         box_text_color: "#EFE6DD",
-        border_color: "#433B73"
+        border_color: "#433B73",
+        switch_border_color: "#433B73",
+        svg_color: "#433B73"
 
     },
     dark: {
@@ -24,7 +26,8 @@ export const comp_themes = {
         text_color: "#EFE6DD",
         box_color: "#433B73",
         box_text_color: "#EFE6DD",
-        border_color: "#EFE6DD"
-
+        border_color: "#EFE6DD",
+        switch_border_color: "#FFC042",
+        svg_color: "#EFE6DD"
     }
 }

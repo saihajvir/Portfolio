@@ -1,8 +1,21 @@
 import { useRef, useEffect } from "react";
+import styled from "styled-components";
+import { useTheme } from "../../utils/provider";
+import { comp_themes } from "../../utils/variables";
 
+const Cursor = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: ${props=>props.bgcolor};
+  opacity: 50%;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10000;
+`
 export default function CustomCursor() {
-
-    const cursorRef = useRef(null)
+    const {theme, setTheme} = useTheme();
+    const cursorRef = useRef(null);
 
     useEffect(() => {
           if (cursorRef.current == null || cursorRef == null)
@@ -26,6 +39,10 @@ export default function CustomCursor() {
      }, [])
 
     return (
-          <div className='cursor' ref={cursorRef}></div>
+          <Cursor 
+               bgcolor={comp_themes[theme].text_color}
+               className='cursor'
+               ref={cursorRef}
+          />
     )
 }

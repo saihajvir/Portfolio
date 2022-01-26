@@ -20,10 +20,9 @@ a {
 
 /* CUSTOM CURSOR CSS */
 
-.cursor {
+/* .cursor {
   width: 30px;
   height: 30px;
-  /* border: 2px solid  #433B73; */
   border-radius: 50%;
   background-color: black;
   opacity: 50%;
@@ -31,7 +30,7 @@ a {
   pointer-events: none;
   z-index: 10000;
   }
-  
+   */
   /* .cursor::after {
   content: "";
   width: 20px;

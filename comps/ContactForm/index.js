@@ -12,7 +12,7 @@ const FormCont = styled.form`
 `
 const FormInput = styled.input`
     height: 40px;
-    width: 400px;
+    width: 60vw;
     border-radius: 10px;
     background-color: #00000000;
     border: ${props=>props.bordercolor} solid 3px;
@@ -36,8 +36,9 @@ const FormButton = styled(motion.input)`
     }
 `
 const FormText = styled.textarea`
-    width: 400px;
+    width: 60vw;
     height: 100px;
+    padding-top: 10px;
     padding-left: 10px;
     border-radius: 15px;
     background-color: #00000000;
