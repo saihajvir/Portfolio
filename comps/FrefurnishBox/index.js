@@ -66,9 +66,6 @@ export default function FrefurnishBox()
             <Cont
                 bgcolor={comp_themes[theme].box_color}
                 color={comp_themes[theme].box_text_color}
-
-                drag="x"
-                dragConstraints={{ left: -100, right: 100 }}
                 whileHover={{ scale: 1.1, background: "linear-gradient(300deg, #EEAB93, #92A8F8)"}}
                 whileTap={{ scale: 0.9 }}
             >

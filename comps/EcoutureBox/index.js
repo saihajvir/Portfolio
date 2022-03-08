@@ -66,9 +66,6 @@ export default function EcoutureBox()
             <Cont
                 bgcolor={comp_themes[theme].box_color}
                 color={comp_themes[theme].box_text_color}
-
-                drag="x"
-                dragConstraints={{ left: -100, right: 100 }}
                 whileHover={{ scale: 1.1, background: "linear-gradient(300deg, #51B27E, #3884FF)"}}
                 whileTap={{ scale: 0.9 }}
             >

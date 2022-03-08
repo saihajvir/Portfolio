@@ -178,9 +178,7 @@ export default function Home({
 
         </IntroTextCont>
 
-        <HeadshotCont   
-          drag="x"
-          dragConstraints={{ left: -100, right: 100 }}
+        <HeadshotCont
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}>  
           <HeadshotImg src='/headshot-round.png'/>
