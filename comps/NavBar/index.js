@@ -10,12 +10,18 @@ import ToggleSwitch from "../ToggleSwitch";
 
 const NavCont = styled.div`
     display: flex;
-    width: 60vw;
-    height: 50px;
+    width: 100vw;
+    height: 60px;
     position: fixed;
     top: 0;
     background-color: ${props=>props.bgcolor};
     font-family: 'Circular';
+    z-index: 1000;
+    justify-content: center;
+`
+const InnerCont = styled.div`
+    display: flex;
+    width: 60vw;
 `
 const LeftCont = styled.div`
     display: flex;
@@ -48,8 +54,9 @@ export default function NavBar()
     
     return <>
         <NavCont bgcolor={themes[theme].body}>
+            <InnerCont>
             <LeftCont>
-              <MenuItem color={comp_themes[theme].text_color}><Link href="/">saihajvir.com</Link></MenuItem>
+              <MenuItem color={comp_themes[theme].text_color} style={{margin: 0}}><Link href="/">saihajvir.com</Link></MenuItem>
             </LeftCont>
             <RightCont>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="/#development">Development</Link></MenuItem>
@@ -57,6 +64,7 @@ export default function NavBar()
                 <MenuItem color={comp_themes[theme].text_color}><Link href="/#about">About</Link></MenuItem>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="/#contact">Contact</Link></MenuItem>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="https://github.com/saihajvir/">GitHub</Link></MenuItem>
+                <MenuItem color={comp_themes[theme].text_color}><Link href="https://www.linkedin.com/in/saihajvir-gill-2b4271230">LinkedIn</Link></MenuItem>
                 {/* <ThemeButton
                     buttonText={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
                     onSwitchClick={()=>setTheme(theme === 'dark' ? 'default' : 'dark')}
@@ -66,6 +74,7 @@ export default function NavBar()
                     onSwitchClick={Toggle}
                 />
             </RightCont>
+            </InnerCont>
         </NavCont>
     </>
 }

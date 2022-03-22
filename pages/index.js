@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -21,12 +22,177 @@ import RecordSvg from '../comps/RecordSvg';
 import CameraSvg from '../comps/CameraSvg';
 import WatchSvg from '../comps/WatchSvg';
 
-
 import { useTheme } from '../utils/provider';
 import { comp_themes } from '../utils/variables';
 
 import {data} from '../data/data';
 
+
+
+export default function Home({
+  minWidth="none"
+}) {
+
+  const r = useRouter();
+  const {theme, setTheme} = useTheme();
+
+  return <>
+    <CustomCursor/>
+    <Wrapper>
+    <NavBar />
+      <IntroCont>
+        <IntroTextCont>
+          <HeaderText color={comp_themes[theme].text_color}>
+            Hello,<br/>I'm Saihaj
+          </HeaderText>
+
+          <StudentText color={comp_themes[theme].text_color}>
+            I'm a graduating student <br/>from BCIT's Digital Design <br/>and Development Program.
+          </StudentText>
+
+          <DescriptionText color={comp_themes[theme].text_color}>
+            I’m a Front End Developer who also <br/>has a strong understanding of UX/UI <br/>Design principles.
+          </DescriptionText>
+
+        </IntroTextCont>
+
+        <HeadshotCont>
+          <HeadshotImg src='/headshot-round.png'/>
+        </HeadshotCont>
+      </IntroCont>
+    </Wrapper>
+
+    <WorkWrapper bgcolor='none' minWidth="none" id="development">
+
+      <WorkCont>
+        <HeadingCont>
+          <ScrollHeader scrollText='Development'/>
+        </HeadingCont>
+
+        <FrefurnishBox onClick={()=>r.push('https://github.com/saihajvir/frefurnish')}/>
+        <EcoutureBox onClick={()=>r.push('https://ecouture.ca')}/>
+        <ForageBox onClick={()=>r.push('https://github.com/eilidhma/forage')}/>
+
+      </WorkCont>
+    </WorkWrapper>
+
+    <WorkWrapper bgcolor='none' id="resume">
+      <HeadingCont>
+        <ScrollHeader scrollText="Résumé"/>
+      </HeadingCont>
+      <WorkCont>
+        <TextCont dir="ltr">
+        
+        <ExpCont>
+          <SmallHeading color={comp_themes[theme].text_color}>
+            Work Experience
+          </SmallHeading>
+
+            <ExperienceText 
+              role_text="Specialist,"
+              place_text="Apple Guildford Town Centre"
+              date_text="August 2021 — October 2021"
+            />
+            <br/>
+            <ExperienceText 
+              role_text="Designated Sales Associate,"
+              place_text="Nordstrom Pacific Centre"
+              date_text="March 2017 — August 2020"
+            />
+        </ExpCont>
+        
+        <ExpCont>
+          <SmallHeading color={comp_themes[theme].text_color}>
+            Education
+          </SmallHeading>
+
+            <ExperienceText
+              role_text="Digital Design and Development,"
+              place_text="BCIT"
+              date_text="September 2020 — Present"
+            />
+        </ExpCont>
+        </TextCont>
+
+        <TextCont dir="rtl">
+          <ExpCont>
+            <SmallHeading color={comp_themes[theme].text_color}>
+              Skills
+            </SmallHeading>
+              <SmallText color={comp_themes[theme].text_color}>
+                Front End Development <br/>
+                Databasing <br/>
+                UX/UI Design <br/>
+                Wireframing <br/>
+                Prototyping
+              </SmallText>
+          </ExpCont>
+
+          <ExpCont>
+            <SmallHeading color={comp_themes[theme].text_color}>
+              Tools
+            </SmallHeading>
+              <SmallText color={comp_themes[theme].text_color}>
+                HTML, CSS, JavaScript <br/>
+                React, Next.JS, React-Native <br/>
+                Photoshop <br/>
+                Illustrator <br/>
+                Figma <br/>
+                After Effects <br/>
+                Visual Studio Code
+              </SmallText>
+          </ExpCont>
+
+        </TextCont>
+      </WorkCont>
+      {/* <DownloadButton/> */}
+    </WorkWrapper>
+
+    <WorkWrapper id="about">
+      <HeadingCont>
+        <ScrollHeader scrollText="About"/>
+      </HeadingCont>
+
+      <SmallHeading color={comp_themes[theme].text_color}>
+        Profile
+      </SmallHeading>
+
+      {data.map((data, i)=>
+        <SmallText color={comp_themes[theme].text_color} key={i}>
+          {data.profile}
+        </SmallText>
+      )}
+
+      <SmallHeading color={comp_themes[theme].text_color}>
+        What can I do?
+      </SmallHeading>
+
+      {data.map((data, i)=>
+        <SmallText color={comp_themes[theme].text_color} key={i}>
+          {data.skill_desc}
+        </SmallText>
+      )}
+
+      {/* <SvgCont>
+        <RecordSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
+        <CameraSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
+        <WatchSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
+      </SvgCont> */}
+    </WorkWrapper>
+
+    <WorkWrapper id="contact">
+      <HeadingCont>
+        <ScrollHeader scrollText="Contact"/>
+      </HeadingCont>
+
+        <ContactForm/>
+
+    </WorkWrapper>
+  </>
+}
+
+
+//STYLED COMPONENTS
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -165,164 +331,3 @@ const SvgCont = styled.div`
   align-items: center;
   flex-wrap: wrap;
 `
-
-export default function Home({
-  minWidth="none"
-}) {
-
-  const {theme, setTheme} = useTheme();
-
-  return <>
-    <CustomCursor/>
-    <Wrapper>
-    <NavBar />
-      <IntroCont>
-        <IntroTextCont>
-          <HeaderText color={comp_themes[theme].text_color}>
-            Hello,<br/>I'm Saihaj
-          </HeaderText>
-
-          <StudentText color={comp_themes[theme].text_color}>
-            I'm a graduating student <br/>from BCIT's Digital Design <br/>and Development Program.
-          </StudentText>
-
-          <DescriptionText color={comp_themes[theme].text_color}>
-            I’m a Front End Developer who also <br/>has a strong understanding of UX/UI <br/>Design principles.
-          </DescriptionText>
-
-        </IntroTextCont>
-
-        <HeadshotCont>
-          <HeadshotImg src='/headshot-round.png'/>
-        </HeadshotCont>
-      </IntroCont>
-    </Wrapper>
-
-    <WorkWrapper bgcolor='none' minWidth="none" id="development">
-
-      <WorkCont>
-        <HeadingCont>
-          <ScrollHeader scrollText='Development'/>
-        </HeadingCont>
-
-        <FrefurnishBox/>
-        <EcoutureBox/>
-        <ForageBox/>
-
-      </WorkCont>
-    </WorkWrapper>
-
-    <WorkWrapper bgcolor='none' id="resume">
-      <HeadingCont>
-        <ScrollHeader scrollText="Résumé"/>
-      </HeadingCont>
-      <WorkCont>
-        <TextCont dir="ltr">
-        
-        <ExpCont>
-          <SmallHeading color={comp_themes[theme].text_color}>
-            Work Experience
-          </SmallHeading>
-
-            <ExperienceText 
-              role_text="Specialist,"
-              place_text="Apple Guildford Town Centre"
-              date_text="August 2021 — October 2021"
-            />
-            <br/>
-            <ExperienceText 
-              role_text="Designated Sales Associate,"
-              place_text="Nordstrom Pacific Centre"
-              date_text="March 2017 — August 2020"
-            />
-        </ExpCont>
-        
-        <ExpCont>
-          <SmallHeading color={comp_themes[theme].text_color}>
-            Education
-          </SmallHeading>
-
-            <ExperienceText
-              role_text="Digital Design and Development,"
-              place_text="BCIT"
-              date_text="September 2020 — Present"
-            />
-        </ExpCont>
-        </TextCont>
-
-        <TextCont dir="rtl">
-          <ExpCont>
-            <SmallHeading color={comp_themes[theme].text_color}>
-              Skills
-            </SmallHeading>
-              <SmallText color={comp_themes[theme].text_color}>
-                Front End Development <br/>
-                Databasing <br/>
-                UX/UI Design <br/>
-                Wireframing <br/>
-                Prototyping
-              </SmallText>
-          </ExpCont>
-
-          <ExpCont>
-            <SmallHeading color={comp_themes[theme].text_color}>
-              Tools
-            </SmallHeading>
-              <SmallText color={comp_themes[theme].text_color}>
-                HTML, CSS, JavaScript <br/>
-                React, Next.JS, React-Native <br/>
-                Photoshop <br/>
-                Illustrator <br/>
-                Figma <br/>
-                After Effects <br/>
-                Visual Studio Code
-              </SmallText>
-          </ExpCont>
-
-        </TextCont>
-      </WorkCont>
-      {/* <DownloadButton/> */}
-    </WorkWrapper>
-
-    <WorkWrapper id="about">
-      <HeadingCont>
-        <ScrollHeader scrollText="About"/>
-      </HeadingCont>
-
-      <SmallHeading color={comp_themes[theme].text_color}>
-        Profile
-      </SmallHeading>
-
-      {data.map((data, i)=>
-        <SmallText color={comp_themes[theme].text_color} key={i}>
-          {data.profile}
-        </SmallText>
-      )}
-
-      <SmallHeading color={comp_themes[theme].text_color}>
-        What can I do?
-      </SmallHeading>
-
-      {data.map((data, i)=>
-        <SmallText color={comp_themes[theme].text_color} key={i}>
-          {data.skill_desc}
-        </SmallText>
-      )}
-
-      {/* <SvgCont>
-        <RecordSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
-        <CameraSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
-        <WatchSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
-      </SvgCont> */}
-    </WorkWrapper>
-
-    <WorkWrapper id="contact">
-      <HeadingCont>
-        <ScrollHeader scrollText="Contact"/>
-      </HeadingCont>
-
-        <ContactForm/>
-
-    </WorkWrapper>
-  </>
-}
