@@ -32,7 +32,7 @@ const InfoCont = styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 10px;
+    padding: 10px 20px 0 0;
 `
 const Image = styled.img`
     width: 130%;

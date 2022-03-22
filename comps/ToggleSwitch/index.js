@@ -62,19 +62,17 @@ const SwitchUI = styled.input`
 export default function ToggleSwitch({
     onSwitchClick=()=>{},
     lineBgColor
-
 })
 {
     const {theme, setTheme} = useTheme();
     const [isToggled, setIsToggled] = useState(false);
     
-    return <>
-			<SwitchUI
-                lineBgColor={lineBgColor}
-                borderColor={comp_themes[theme].switch_border_color}
-                
-                type="checkbox"
-                onClick={onSwitchClick}
-            />
-    </>
+        return <>
+                <SwitchUI
+                  lineBgColor={lineBgColor}
+                  borderColor={comp_themes[theme].switch_border_color}
+                  type="checkbox"
+                  onClick={onSwitchClick}
+                />
+        </>
 }

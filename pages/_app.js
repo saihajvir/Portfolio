@@ -67,7 +67,11 @@ function MyApp({ Component, pageProps }) {
   return <AppProvider>
     <div>
       <Head>
-        <title>Saihajvir Gill</title>
+        <title>Saihajvir Gill | Front End Developer Portfolio | BCIT D3 2022</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name ="author" content="saihajvir gill" />
+        <meta name="keywords" content="react, nextjs, developer, front end, portfolio, bcit, d3, ui, ux, design, coding, html, css, javascript" />
+        <meta name="description" content="2022 bcit d3 front end developer portfolio by saihajvir gill" />
       </Head>
     </div>
   <GlobalStyle />

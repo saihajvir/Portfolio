@@ -48,13 +48,11 @@ export default function NavBar()
     
     return <>
         <NavCont bgcolor={themes[theme].body}>
-            <LeftCont
-                color={comp_themes[theme].text_color}
-            >
-                <Link href="/">saihajvir.com</Link>
+            <LeftCont>
+              <MenuItem color={comp_themes[theme].text_color}><Link href="/">saihajvir.com</Link></MenuItem>
             </LeftCont>
             <RightCont>
-                <MenuItem color={comp_themes[theme].text_color}><Link href="/#work">Work</Link></MenuItem>
+                <MenuItem color={comp_themes[theme].text_color}><Link href="/#development">Development</Link></MenuItem>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="/#resume">Resume</Link></MenuItem>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="/#about">About</Link></MenuItem>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="/#contact">Contact</Link></MenuItem>

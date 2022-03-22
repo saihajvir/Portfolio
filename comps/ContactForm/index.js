@@ -20,6 +20,7 @@ const FormInput = styled.input`
     padding-left: 10px;
     margin: 10px 0 10px 0;
     font-family: 'Circular';
+    max-width:1000px ;
 `
 const FormButton = styled(motion.input)`
     width: 60vw;
@@ -30,6 +31,7 @@ const FormButton = styled(motion.input)`
     background-color: #00000000;
     margin: 10px 0 10px 0;
     font-family: 'Circular';
+    max-width:1000px ;
     font-size: 16px;
     :hover {
         cursor: pointer;
@@ -46,6 +48,8 @@ const FormText = styled.textarea`
     font-family: 'Circular';
     border: ${props=>props.bordercolor} solid 3px;
     color: ${props=>props.color};
+    max-width:1000px ;
+
 `
 
 export default function ContactForm()

@@ -11,13 +11,9 @@ import ThemeButton from '../comps/ThemeButton';
 import ScrollHeader from '../comps/ScrollHeader';
 import FrefurnishBox from '../comps/FrefurnishBox';
 import EcoutureBox from '../comps/EcoutureBox';
+import ForageBox from '../comps/ForageBox';
 import NavBar from '../comps/NavBar';
 import ExperienceText from '../comps/ExperienceText';
-
-import { useTheme } from '../utils/provider';
-import { comp_themes } from '../utils/variables';
-
-import {data} from '../data/data';
 import CustomCursor from '../comps/CustomCursor';
 import DownloadButton from '../comps/DownloadButton';
 import ContactForm from '../comps/ContactForm';
@@ -25,11 +21,27 @@ import RecordSvg from '../comps/RecordSvg';
 import CameraSvg from '../comps/CameraSvg';
 import WatchSvg from '../comps/WatchSvg';
 
+
+import { useTheme } from '../utils/provider';
+import { comp_themes } from '../utils/variables';
+
+import {data} from '../data/data';
+
+const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+`
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 60vw;
+  max-width: 1000px;
   margin: 0 auto;
   background-color: ${props=>props.bg};
   justify-content: center;
@@ -38,6 +50,7 @@ const Wrapper = styled.div`
 const IntroCont = styled.div`
   display: flex;
   flex-direction: row;
+  max-width: 1000px;
   min-height: 30vh;
   width: 100%;
   /* background-color: yellow; */
@@ -94,6 +107,7 @@ const WorkWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  max-width: 1000px;
   width: 60vw;
   min-width: ${props=>props.minWidth};
   margin: 0 auto;
@@ -178,23 +192,22 @@ export default function Home({
 
         </IntroTextCont>
 
-        <HeadshotCont
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}>  
+        <HeadshotCont>
           <HeadshotImg src='/headshot-round.png'/>
         </HeadshotCont>
       </IntroCont>
     </Wrapper>
 
-    <WorkWrapper bgcolor='none' minWidth="none" id="work">
+    <WorkWrapper bgcolor='none' minWidth="none" id="development">
 
       <WorkCont>
         <HeadingCont>
-          <ScrollHeader scrollText='Work'/>
+          <ScrollHeader scrollText='Development'/>
         </HeadingCont>
 
         <FrefurnishBox/>
         <EcoutureBox/>
+        <ForageBox/>
 
       </WorkCont>
     </WorkWrapper>
@@ -268,7 +281,7 @@ export default function Home({
 
         </TextCont>
       </WorkCont>
-      <DownloadButton/>
+      {/* <DownloadButton/> */}
     </WorkWrapper>
 
     <WorkWrapper id="about">
@@ -296,11 +309,11 @@ export default function Home({
         </SmallText>
       )}
 
-      <SvgCont>
+      {/* <SvgCont>
         <RecordSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
         <CameraSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
         <WatchSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
-      </SvgCont>
+      </SvgCont> */}
     </WorkWrapper>
 
     <WorkWrapper id="contact">
@@ -311,6 +324,5 @@ export default function Home({
         <ContactForm/>
 
     </WorkWrapper>
-  
   </>
 }

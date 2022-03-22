@@ -10,6 +10,7 @@ const ButtonCont = styled(motion.button)`
     border: ${props=>props.bordercolor} solid 3px;
     color: ${props=>props.color};
     border-radius: 15px;
+    max-width: 1000px;
     background-color: #00000000;
     font-family: 'Circular';
     font-size: 16px;

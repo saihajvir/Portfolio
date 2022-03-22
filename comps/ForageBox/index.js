@@ -6,18 +6,19 @@ import { motion } from "framer-motion";
 
 const Cont = styled(motion.div)`
     display: flex;
-    width: calc(150px + 30%);
+    width: 100%;
+    height: auto;
     border-radius: 25px;
-    background: ${props=>props.bgcolor};
+    background-color: ${props=>props.bgcolor};
     margin: 5px;
     :hover {
         cursor: pointer;
     }
-    :after {
+    /* :after {
         content: "";
         display: block;
         padding-bottom: 100%;
-    }
+    } */
     @media (max-width:1400px) {
         width: 100%;
         height: 40vh;
@@ -32,20 +33,20 @@ const InfoCont = styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 10px 0 0 20px;
+    padding: 10px 20px 0 0;
 `
 const Image = styled.img`
-    width: 80%;
+    width: 120%;
     height: auto;
     object-fit: contain;
-    margin: 30px 0 30px 0;
+    margin: 30px 30px 30px 40px;
 `
 const Title = styled.span`
     font-family: "Circular";
     font-size: calc(12px + 2vw);
     font-weight: bold;
     font-style: normal;
-    text-align: left;
+    text-align: right;
     width: 100%;
     color: ${props=>props.color};
 `
@@ -53,35 +54,36 @@ const Info = styled.span`
     font-family: "Circular";
     font-size: calc(12px + 0.3vw);
     font-weight: normal;
-    text-align: left;
+    text-align: right;
     width: 100%;
     color: ${props=>props.color};
 `
 
-export default function EcoutureBox()
+export default function ForageBox()
 {
     const {theme, setTheme} = useTheme();
 
     return <>
-        <Link href="https://ecouture.ca">
+        <Link href="https://www.github.com/saihajvir/frefurnish">
             <Cont
                 bgcolor={comp_themes[theme].box_color}
                 color={comp_themes[theme].box_text_color}
-                whileHover={{ scale: 1.1, background: "linear-gradient(300deg, #51B27E, #3884FF)"}}
+                whileHover={{ scale: 1.1, background: "linear-gradient(300deg, #EF6345, #E1EBEF)"}}
                 whileTap={{ scale: 0.9 }}
             >
+                <ImageCont>
+                    <Image src="/forage.png"/>
+                </ImageCont>
                 <InfoCont>
                     <Title color={comp_themes[theme].box_text_color} >
-                        Ecouture
+                        Forage
                     </Title>
                     <Info color={comp_themes[theme].box_text_color}>
                         Front End Development <br/>
+                        Back End Development <br/>
                         UX/UI Design
                     </Info>
                 </InfoCont>
-                <ImageCont>
-                    <Image src="/ecouture-iphone.png"/>
-                </ImageCont>
             </Cont>
         </Link>
     </>
