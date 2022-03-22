@@ -3,6 +3,25 @@ import styled from "styled-components"
 import { useTheme } from "../../utils/provider"
 import { comp_themes } from "../../utils/variables"
 
+export default function ToggleSwitch({
+    onSwitchClick=()=>{},
+    lineBgColor
+})
+{
+    const {theme, setTheme} = useTheme();
+    const [isToggled, setIsToggled] = useState(false);
+    
+        return <>
+                <SwitchUI
+                  lineBgColor={lineBgColor}
+                  borderColor={comp_themes[theme].switch_border_color}
+                  type="checkbox"
+                  onClick={onSwitchClick}
+                />
+        </>
+}
+
+
 const SwitchUI = styled.input`
       -webkit-appearance: none;
      -moz-appearance: none;
@@ -58,21 +77,3 @@ const SwitchUI = styled.input`
   }
 
 `
-
-export default function ToggleSwitch({
-    onSwitchClick=()=>{},
-    lineBgColor
-})
-{
-    const {theme, setTheme} = useTheme();
-    const [isToggled, setIsToggled] = useState(false);
-    
-        return <>
-                <SwitchUI
-                  lineBgColor={lineBgColor}
-                  borderColor={comp_themes[theme].switch_border_color}
-                  type="checkbox"
-                  onClick={onSwitchClick}
-                />
-        </>
-}

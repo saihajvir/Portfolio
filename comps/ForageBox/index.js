@@ -4,6 +4,38 @@ import { useTheme } from "../../utils/provider"
 import { comp_themes } from "../../utils/variables";
 import { motion } from "framer-motion";
 
+export default function ForageBox({
+    onClick=()=>{}
+})
+{
+    const {theme, setTheme} = useTheme();
+
+    return <>
+        <Cont
+            bgcolor={comp_themes[theme].box_color}
+            color={comp_themes[theme].box_text_color}
+            whileHover={{ scale: 1.05, background: "linear-gradient(300deg, #EF6345, #E1EBEF)" }}
+            whileTap={{ scale: 0.9 }}
+            onClick={onClick}
+        >
+            <ImageCont>
+                <Image src="/forage.png" />
+            </ImageCont>
+            <InfoCont>
+                <Title color={comp_themes[theme].box_text_color} >
+                    Forage
+                </Title>
+                <Info color={comp_themes[theme].box_text_color}>
+                    Front End Development <br />
+                    Back End Development <br />
+                    UX/UI Design
+                </Info>
+            </InfoCont>
+        </Cont>
+    </>
+}
+
+
 const Cont = styled(motion.div)`
     display: flex;
     width: 100%;
@@ -58,34 +90,3 @@ const Info = styled.span`
     width: 100%;
     color: ${props=>props.color};
 `
-
-export default function ForageBox({
-    onClick=()=>{}
-})
-{
-    const {theme, setTheme} = useTheme();
-
-    return <>
-        <Cont
-            bgcolor={comp_themes[theme].box_color}
-            color={comp_themes[theme].box_text_color}
-            whileHover={{ scale: 1.05, background: "linear-gradient(300deg, #EF6345, #E1EBEF)" }}
-            whileTap={{ scale: 0.9 }}
-            onClick={onClick}
-        >
-            <ImageCont>
-                <Image src="/forage.png" />
-            </ImageCont>
-            <InfoCont>
-                <Title color={comp_themes[theme].box_text_color} >
-                    Forage
-                </Title>
-                <Info color={comp_themes[theme].box_text_color}>
-                    Front End Development <br />
-                    Back End Development <br />
-                    UX/UI Design
-                </Info>
-            </InfoCont>
-        </Cont>
-    </>
-}

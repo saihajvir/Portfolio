@@ -8,40 +8,6 @@ import { comp_themes } from "../../utils/variables";
 import ThemeButton from "../ThemeButton";
 import ToggleSwitch from "../ToggleSwitch";
 
-const NavCont = styled.div`
-    display: flex;
-    width: 100vw;
-    height: 60px;
-    position: fixed;
-    top: 0;
-    background-color: ${props=>props.bgcolor};
-    font-family: 'Circular';
-    z-index: 1000;
-    justify-content: center;
-`
-const InnerCont = styled.div`
-    display: flex;
-    width: 60vw;
-`
-const LeftCont = styled.div`
-    display: flex;
-    align-items: center;
-    flex: 1;
-    color: ${props=>props.color};
-
-`
-const RightCont = styled.div`
-    display: flex;
-    flex: 2;
-    align-items: center;
-    justify-content: flex-end;
-`
-const MenuItem = styled.div`
-    margin-left: 20px;
-    margin-right: 20px;
-    color: ${props=>props.color};
-`
-
 export default function NavBar()
 {
     const {theme, setTheme} = useTheme();
@@ -78,3 +44,37 @@ export default function NavBar()
         </NavCont>
     </>
 }
+
+const NavCont = styled.div`
+    display: flex;
+    width: 100vw;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    background-color: ${props=>props.bgcolor};
+    font-family: 'Circular';
+    z-index: 1000;
+    justify-content: center;
+`
+const InnerCont = styled.div`
+    display: flex;
+    width: 60vw;
+`
+const LeftCont = styled.div`
+    display: flex;
+    align-items: center;
+    flex: 1;
+    color: ${props=>props.color};
+
+`
+const RightCont = styled.div`
+    display: flex;
+    flex: 2;
+    align-items: center;
+    justify-content: flex-end;
+`
+const MenuItem = styled.div`
+    margin-left: 20px;
+    margin-right: 20px;
+    color: ${props=>props.color};
+`

@@ -3,16 +3,7 @@ import styled from "styled-components";
 import { useTheme } from "../../utils/provider";
 import { comp_themes } from "../../utils/variables";
 
-const Cursor = styled.div`
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: ${props=>props.bgcolor};
-  opacity: 50%;
-  position: absolute;
-  pointer-events: none;
-  z-index: 10000;
-`
+
 export default function CustomCursor() {
     const {theme, setTheme} = useTheme();
     const cursorRef = useRef(null);
@@ -46,3 +37,14 @@ export default function CustomCursor() {
           />
     )
 }
+
+const Cursor = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: ${props=>props.bgcolor};
+  opacity: 50%;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10000;
+`

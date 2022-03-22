@@ -6,51 +6,6 @@ import { useTheme } from "../../utils/provider"
 import { comp_themes } from "../../utils/variables";
 import { motion } from "framer-motion";
 
-const FormCont = styled.form`
-    display: flex;
-    flex-direction: column;
-`
-const FormInput = styled.input`
-    height: 40px;
-    width: 60vw;
-    border-radius: 10px;
-    background-color: #00000000;
-    border: ${props=>props.bordercolor} solid 3px;
-    color: ${props=>props.color};
-    padding-left: 10px;
-    margin: 10px 0 10px 0;
-    font-family: 'Circular';
-    max-width:1000px ;
-`
-const FormButton = styled(motion.input)`
-    width: 60vw;
-    height: 10vh;
-    border: ${props=>props.bordercolor} solid 3px;
-    color: ${props=>props.color};
-    border-radius: 15px;
-    background-color: #00000000;
-    margin: 10px 0 10px 0;
-    font-family: 'Circular';
-    max-width:1000px ;
-    font-size: 16px;
-    :hover {
-        cursor: pointer;
-    }
-`
-const FormText = styled.textarea`
-    width: 60vw;
-    height: 100px;
-    padding-top: 10px;
-    padding-left: 10px;
-    border-radius: 15px;
-    background-color: #00000000;
-    margin: 10px 0 10px 0;
-    font-family: 'Circular';
-    border: ${props=>props.bordercolor} solid 3px;
-    color: ${props=>props.color};
-    max-width:1000px ;
-
-`
 
 export default function ContactForm()
 {
@@ -117,3 +72,50 @@ export default function ContactForm()
 
     </>
 }
+
+//STYLED COMPONENTS
+const FormCont = styled.form`
+    display: flex;
+    flex-direction: column;
+`
+const FormInput = styled.input`
+    height: 40px;
+    width: 60vw;
+    border-radius: 10px;
+    background-color: #00000000;
+    border: ${props=>props.bordercolor} solid 3px;
+    color: ${props=>props.color};
+    padding-left: 10px;
+    margin: 10px 0 10px 0;
+    font-family: 'Circular';
+    max-width:1000px ;
+`
+const FormButton = styled(motion.input)`
+    width: 60vw;
+    height: 10vh;
+    border: ${props=>props.bordercolor} solid 3px;
+    color: ${props=>props.color};
+    border-radius: 15px;
+    background-color: #00000000;
+    margin: 10px 0 10px 0;
+    font-family: 'Circular';
+    max-width:1000px ;
+    font-size: 16px;
+    :hover {
+        cursor: pointer;
+    }
+`
+const FormText = styled.textarea`
+    width: 60vw;
+    height: 100px;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    background-color: #00000000;
+    margin: 10px 0 10px 0;
+    font-family: 'Circular';
+    border: ${props=>props.bordercolor} solid 3px;
+    color: ${props=>props.color};
+    max-width:1000px ;
+
+`

@@ -4,6 +4,37 @@ import { useTheme } from "../../utils/provider"
 import { comp_themes } from "../../utils/variables";
 import { motion } from "framer-motion";
 
+export default function EcoutureBox({
+    onClick=()=>{}
+})
+{
+    const {theme, setTheme} = useTheme();
+
+    return <>
+        <Cont
+            bgcolor={comp_themes[theme].box_color}
+            color={comp_themes[theme].box_text_color}
+            whileHover={{ scale: 1.05, background: "linear-gradient(300deg, #51B27E, #3884FF)" }}
+            whileTap={{ scale: 0.9 }}
+            onClick={onClick}
+        >
+            <InfoCont>
+                <Title color={comp_themes[theme].box_text_color} >
+                    Ecouture
+                </Title>
+                <Info color={comp_themes[theme].box_text_color}>
+                    Front End Development <br />
+                    UX/UI Design
+                </Info>
+            </InfoCont>
+            <ImageCont>
+                <Image src="/ecouture-iphone.png" />
+            </ImageCont>
+        </Cont>
+    </>
+}
+
+
 const Cont = styled(motion.div)`
     display: flex;
     width: calc(150px + 30%);
@@ -57,33 +88,3 @@ const Info = styled.span`
     width: 100%;
     color: ${props=>props.color};
 `
-
-export default function EcoutureBox({
-    onClick=()=>{}
-})
-{
-    const {theme, setTheme} = useTheme();
-
-    return <>
-        <Cont
-            bgcolor={comp_themes[theme].box_color}
-            color={comp_themes[theme].box_text_color}
-            whileHover={{ scale: 1.05, background: "linear-gradient(300deg, #51B27E, #3884FF)" }}
-            whileTap={{ scale: 0.9 }}
-            onClick={onClick}
-        >
-            <InfoCont>
-                <Title color={comp_themes[theme].box_text_color} >
-                    Ecouture
-                </Title>
-                <Info color={comp_themes[theme].box_text_color}>
-                    Front End Development <br />
-                    UX/UI Design
-                </Info>
-            </InfoCont>
-            <ImageCont>
-                <Image src="/ecouture-iphone.png" />
-            </ImageCont>
-        </Cont>
-    </>
-}

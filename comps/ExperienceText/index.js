@@ -3,15 +3,7 @@ import { useTheme } from "../../utils/provider"
 import { themes } from "../../utils/variables";
 import { comp_themes } from "../../utils/variables";
 
-const ExpCont = styled.div`
-`
-const ExpText = styled.span`
-  font-family: 'Circular';
-  font-style: ${props=>props.fontStyle};
-  font-weight: ${props=>props.fontWeight};
-  font-size: calc(12px + 0.5vw);
-  color: ${props=>props.color};
-`
+
 export default function ExperienceText({
     fontWeight="normal",
     role_text="default",
@@ -36,3 +28,13 @@ export default function ExperienceText({
         </ExpCont>
     </>
 }
+
+const ExpCont = styled.div`
+`
+const ExpText = styled.span`
+  font-family: 'Circular';
+  font-style: ${props=>props.fontStyle};
+  font-weight: ${props=>props.fontWeight};
+  font-size: calc(12px + 0.5vw);
+  color: ${props=>props.color}
+`
