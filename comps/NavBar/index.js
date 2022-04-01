@@ -16,6 +16,7 @@ export default function NavBar()
     const Toggle = () => {
         setTheme(theme === 'dark' ? 'default' : 'dark');
         setIsToggled(!isToggled);
+        console.log(isToggled, "toggle")
     }
     
     return <>
@@ -31,12 +32,8 @@ export default function NavBar()
                 <MenuItem color={comp_themes[theme].text_color}><Link href="/#contact">Contact</Link></MenuItem>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="https://github.com/saihajvir/">GitHub</Link></MenuItem>
                 <MenuItem color={comp_themes[theme].text_color}><Link href="https://www.linkedin.com/in/saihajvir-gill-2b4271230">LinkedIn</Link></MenuItem>
-                {/* <ThemeButton
-                    buttonText={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-                    onSwitchClick={()=>setTheme(theme === 'dark' ? 'default' : 'dark')}
-                /> */}
                 <ToggleSwitch
-                    lineBgColor={isToggled === true ? "#1F2933" : "#EFE6DD"}
+                    lineBgColor={isToggled === true ? "#EFE6DD": "#1F2933" }
                     onSwitchClick={Toggle}
                 />
             </RightCont>
@@ -65,7 +62,6 @@ const LeftCont = styled.div`
     align-items: center;
     flex: 1;
     color: ${props=>props.color};
-
 `
 const RightCont = styled.div`
     display: flex;
@@ -74,7 +70,7 @@ const RightCont = styled.div`
     justify-content: flex-end;
 `
 const MenuItem = styled.div`
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 1vw;
+    margin-right: 1vw;
     color: ${props=>props.color};
 `
