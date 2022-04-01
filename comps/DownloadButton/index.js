@@ -4,20 +4,6 @@ import { comp_themes } from "../../utils/variables";
 
 import { motion } from "framer-motion";
 
-const ButtonCont = styled(motion.button)`
-    width: 60vw;
-    height: 10vh;
-    border: ${props=>props.bordercolor} solid 3px;
-    color: ${props=>props.color};
-    border-radius: 15px;
-    background-color: #00000000;
-    font-family: 'Circular';
-    font-size: 16px;
-    :hover {
-        cursor: pointer;
-    }
-`
-
 export default function DownloadButton()
 {
     const {theme, setTheme} = useTheme();
@@ -40,3 +26,18 @@ export default function DownloadButton()
         </a>
     </>
 }
+
+const ButtonCont = styled(motion.button)`
+    width: 60vw;
+    height: 10vh;
+    border: ${props=>props.bordercolor} solid 3px;
+    color: ${props=>props.color};
+    border-radius: 15px;
+    max-width: 1000px;
+    background-color: #00000000;
+    font-family: 'Circular';
+    font-size: 16px;
+    :hover {
+        cursor: pointer;
+    }
+`

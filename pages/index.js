@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,13 +12,9 @@ import ThemeButton from '../comps/ThemeButton';
 import ScrollHeader from '../comps/ScrollHeader';
 import FrefurnishBox from '../comps/FrefurnishBox';
 import EcoutureBox from '../comps/EcoutureBox';
+import ForageBox from '../comps/ForageBox';
 import NavBar from '../comps/NavBar';
 import ExperienceText from '../comps/ExperienceText';
-
-import { useTheme } from '../utils/provider';
-import { comp_themes } from '../utils/variables';
-
-import {data} from '../data/data';
 import CustomCursor from '../comps/CustomCursor';
 import DownloadButton from '../comps/DownloadButton';
 import ContactForm from '../comps/ContactForm';
@@ -25,137 +22,18 @@ import RecordSvg from '../comps/RecordSvg';
 import CameraSvg from '../comps/CameraSvg';
 import WatchSvg from '../comps/WatchSvg';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 60vw;
-  margin: 0 auto;
-  background-color: ${props=>props.bg};
-  justify-content: center;
-  align-items: center;
-`
-const IntroCont = styled.div`
-  display: flex;
-  flex-direction: row;
-  min-height: 30vh;
-  width: 100%;
-  /* background-color: yellow; */
-`
-const HeadshotCont = styled(motion.div)`
-  display: flex;
-  /* background-color: green; */
-  margin-top: 20px;
-  align-items: flex-start;
-  flex: 1;
-  
-`
-const IntroTextCont = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* background-color: brown; */
-  flex: 1;
-`
-const HeaderText = styled.span`
-  font-family: 'Circular';
-  font-weight: bold;
-  font-style: italic;
-  font-size: calc(36px + 4vw);
-  line-height: 100%;
-  text-align: left;
-  color: #00000000;
-  white-space: pre;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: ${props=>props.color};
-`
-const StudentText = styled.span`
-  font-family: 'Circular';
-  font-weight: bold;
-  font-size: calc(16px + 1vw);
-  color: ${props=>props.color};
-  white-space: pre;
-`
-const DescriptionText = styled.p`
-  font-family: 'Circular';
-  font-weight: normal;
-  font-size: calc(12px + 0.7vw);
-  color: ${props=>props.color};
-  white-space: pre;
-`
-const HeadshotImg = styled.img`
-  padding-left: 10px;
-  width: 100%;
-  min-width: 300px;
-  max-width: 500px;
-  object-fit: contain;
-`
-const WorkWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-  width: 60vw;
-  min-width: ${props=>props.minWidth};
-  margin: 0 auto;
-  background-color: ${props=>props.bgcolor};
-`
-const HeadingCont = styled.div`
-  display: flex;
-  align-items: flex-start;
-  height: auto;
-  width: 100vw;
-`
-const WorkCont = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  min-height: 60vh;
-  width: 100%;
-`
-const TextCont = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  direction: ${props=>props.dir};
-`
-const SmallHeading = styled.h2`
-  font-family: 'Circular';
-  margin-bottom: 10px;
-  font-style: normal;
-  font-weight: bolder;
-  font-size: calc(16px + 2vw);
-  color: ${props=>props.color};
-`
-const SmallText = styled.p`
-  font-family: 'Circular';
-  margin: 0;
-  font-style: normal;
-  font-weight: normal;
-  font-size: calc(12px + 0.5vw);
-  color: ${props=>props.color};
-`
+import { useTheme } from '../utils/provider';
+import { comp_themes } from '../utils/variables';
 
-const ExpCont = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-`
+import {data} from '../data/data';
 
-const SvgCont = styled.div`
-  display: flex;
-  margin-top: 20px;
-  min-height: 40vh;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-`
+
 
 export default function Home({
   minWidth="none"
 }) {
 
+  const r = useRouter();
   const {theme, setTheme} = useTheme();
 
   return <>
@@ -178,23 +56,22 @@ export default function Home({
 
         </IntroTextCont>
 
-        <HeadshotCont
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}>  
+        <HeadshotCont>
           <HeadshotImg src='/headshot-round.png'/>
         </HeadshotCont>
       </IntroCont>
     </Wrapper>
 
-    <WorkWrapper bgcolor='none' minWidth="none" id="work">
+    <WorkWrapper bgcolor='none' minWidth="none" id="development">
 
       <WorkCont>
         <HeadingCont>
-          <ScrollHeader scrollText='Work'/>
+          <ScrollHeader scrollText='Development'/>
         </HeadingCont>
 
-        <FrefurnishBox/>
-        <EcoutureBox/>
+        <FrefurnishBox onClick={()=>r.push('https://github.com/saihajvir/frefurnish')}/>
+        <EcoutureBox onClick={()=>r.push('https://ecouture.ca')}/>
+        <ForageBox onClick={()=>r.push('https://github.com/eilidhma/forage')}/>
 
       </WorkCont>
     </WorkWrapper>
@@ -268,7 +145,7 @@ export default function Home({
 
         </TextCont>
       </WorkCont>
-      <DownloadButton/>
+      {/* <DownloadButton/> */}
     </WorkWrapper>
 
     <WorkWrapper id="about">
@@ -296,11 +173,11 @@ export default function Home({
         </SmallText>
       )}
 
-      <SvgCont>
+      {/* <SvgCont>
         <RecordSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
         <CameraSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
         <WatchSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
-      </SvgCont>
+      </SvgCont> */}
     </WorkWrapper>
 
     <WorkWrapper id="contact">
@@ -311,6 +188,146 @@ export default function Home({
         <ContactForm/>
 
     </WorkWrapper>
-  
   </>
 }
+
+
+//STYLED COMPONENTS
+const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 60vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: ${props=>props.bg};
+  justify-content: center;
+  align-items: center;
+`
+const IntroCont = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  min-height: 30vh;
+  width: 100%;
+  /* background-color: yellow; */
+`
+const HeadshotCont = styled(motion.div)`
+  display: flex;
+  /* background-color: green; */
+  margin-top: 20px;
+  align-items: flex-start;
+  flex: 1;
+  
+`
+const IntroTextCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* background-color: brown; */
+  flex: 1;
+`
+const HeaderText = styled.span`
+  font-family: 'Circular';
+  font-weight: bold;
+  font-style: italic;
+  font-size: calc(36px + 4vw);
+  line-height: 100%;
+  text-align: left;
+  color: #00000000;
+  white-space: pre;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: ${props=>props.color};
+`
+const StudentText = styled.span`
+  font-family: 'Circular';
+  font-weight: bold;
+  font-size: calc(16px + 1vw);
+  color: ${props=>props.color};
+  white-space: pre;
+`
+const DescriptionText = styled.p`
+  font-family: 'Circular';
+  font-weight: normal;
+  font-size: calc(12px + 0.7vw);
+  color: ${props=>props.color};
+  white-space: pre;
+`
+const HeadshotImg = styled.img`
+  padding-left: 10px;
+  width: 100%;
+  min-width: 300px;
+  max-width: 500px;
+  object-fit: contain;
+`
+const WorkWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  max-width: 1000px;
+  width: 60vw;
+  min-width: ${props=>props.minWidth};
+  margin: 0 auto;
+  background-color: ${props=>props.bgcolor};
+`
+const HeadingCont = styled.div`
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  width: 100vw;
+`
+const WorkCont = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  min-height: 60vh;
+  width: 100%;
+`
+const TextCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  direction: ${props=>props.dir};
+`
+const SmallHeading = styled.h2`
+  font-family: 'Circular';
+  margin-bottom: 10px;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: calc(16px + 2vw);
+  color: ${props=>props.color};
+`
+const SmallText = styled.p`
+  font-family: 'Circular';
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: calc(12px + 0.5vw);
+  color: ${props=>props.color};
+`
+
+const ExpCont = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+`
+
+const SvgCont = styled.div`
+  display: flex;
+  margin-top: 20px;
+  min-height: 40vh;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+`
