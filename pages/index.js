@@ -41,6 +41,10 @@ export default function Home({
     <Wrapper>
     <NavBar />
       <IntroCont>
+        <HeadshotCont>
+          <HeadshotImg src='/headshot-round.png'/>
+        </HeadshotCont>
+
         <IntroTextCont>
           <HeaderText color={comp_themes[theme].text_color}>
             Hello,<br/>I'm Saihaj
@@ -56,9 +60,6 @@ export default function Home({
 
         </IntroTextCont>
 
-        <HeadshotCont>
-          <HeadshotImg src='/headshot-round.png'/>
-        </HeadshotCont>
       </IntroCont>
     </Wrapper>
 
@@ -220,6 +221,11 @@ const IntroCont = styled.div`
   min-height: 30vh;
   width: 100%;
   /* background-color: yellow; */
+  
+  @media screen and (max-width: 800px)
+  {
+    flex-direction: column;
+  }
 `
 const HeadshotCont = styled(motion.div)`
   display: flex;
@@ -227,6 +233,14 @@ const HeadshotCont = styled(motion.div)`
   margin-top: 20px;
   align-items: flex-start;
   flex: 1;
+  margin-right: 1vw;
+
+  @media screen and (max-width: 800px)
+  {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+  }
   
 `
 const IntroTextCont = styled.div`
@@ -234,6 +248,14 @@ const IntroTextCont = styled.div`
   flex-direction: column;
   /* background-color: brown; */
   flex: 1;
+  margin-left: 1vw;
+
+  @media screen and (max-width: 800px)
+  {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+  }
 `
 const HeaderText = styled.span`
   font-family: 'Circular';
@@ -246,6 +268,11 @@ const HeaderText = styled.span`
   white-space: pre;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: ${props=>props.color};
+
+  @media screen and (max-width: 600px) 
+  {
+    text-align: center;
+  }
 `
 const StudentText = styled.span`
   font-family: 'Circular';
@@ -267,6 +294,19 @@ const HeadshotImg = styled.img`
   min-width: 300px;
   max-width: 500px;
   object-fit: contain;
+
+  @media screen and (max-width: 800px)
+  {
+    width: 80%;
+    max-width: 300px;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* @media screen and (max-width: 600px)
+  {
+    display: none;
+  } */
 `
 const WorkWrapper = styled.div`
   display: flex;
