@@ -37,19 +37,16 @@ export default function EcoutureBox({
 
 const Cont = styled(motion.div)`
     display: flex;
-    width: calc(150px + 30%);
+    width: 450px;
+    height: 450px;
     border-radius: 25px;
-    background: ${props=>props.bgcolor};
+    background-color: ${props=>props.bgcolor};
     margin: 5px;
+    position: relative;
     :hover {
         cursor: pointer;
     }
-    :after {
-        content: "";
-        display: block;
-        padding-bottom: 100%;
-    }
-    @media (max-width:1400px) {
+    @media (max-width:1540px) {
         width: 100%;
         height: 40vh;
         padding: 10px;
@@ -64,16 +61,18 @@ const InfoCont = styled.div`
     flex: 1;
     flex-direction: column;
     padding: 10px 0 0 20px;
+    position: relative;
+    left: 0;
 `
 const Image = styled.img`
-    width: 80%;
+    width: 180px;
     height: auto;
     object-fit: contain;
     margin: 30px 0 30px 0;
 `
 const Title = styled.span`
     font-family: "Circular";
-    font-size: calc(12px + 2vw);
+    font-size: 48px;
     font-weight: bold;
     font-style: normal;
     text-align: left;
@@ -82,7 +81,7 @@ const Title = styled.span`
 `
 const Info = styled.span`
     font-family: "Circular";
-    font-size: calc(12px + 0.3vw);
+    font-size: 16px;
     font-weight: normal;
     text-align: left;
     width: 100%;

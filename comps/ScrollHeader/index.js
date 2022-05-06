@@ -19,7 +19,7 @@ export default function ScrollHeader({
 
 
 const Text = styled.span`
-    font-size: calc(36px + 4vw);
+    font-size: 100px;
     font-family: 'Circular';
     font-weight: bold;
     font-style: italic;

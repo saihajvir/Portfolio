@@ -1,14 +1,8 @@
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
 
-import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import ThemeButton from '../comps/ThemeButton';
 import ScrollHeader from '../comps/ScrollHeader';
 import FrefurnishBox from '../comps/FrefurnishBox';
 import EcoutureBox from '../comps/EcoutureBox';
@@ -16,11 +10,7 @@ import ForageBox from '../comps/ForageBox';
 import NavBar from '../comps/NavBar';
 import ExperienceText from '../comps/ExperienceText';
 import CustomCursor from '../comps/CustomCursor';
-import DownloadButton from '../comps/DownloadButton';
 import ContactForm from '../comps/ContactForm';
-import RecordSvg from '../comps/RecordSvg';
-import CameraSvg from '../comps/CameraSvg';
-import WatchSvg from '../comps/WatchSvg';
 
 import { useTheme } from '../utils/provider';
 import { comp_themes } from '../utils/variables';
@@ -261,7 +251,7 @@ const HeaderText = styled.span`
   font-family: 'Circular';
   font-weight: bold;
   font-style: italic;
-  font-size: calc(36px + 4vw);
+  font-size: 100px;
   line-height: 100%;
   text-align: left;
   color: #00000000;
@@ -277,22 +267,21 @@ const HeaderText = styled.span`
 const StudentText = styled.span`
   font-family: 'Circular';
   font-weight: bold;
-  font-size: calc(16px + 1vw);
+  font-size: 36px;
   color: ${props=>props.color};
   white-space: pre;
 `
 const DescriptionText = styled.p`
   font-family: 'Circular';
   font-weight: normal;
-  font-size: calc(12px + 0.7vw);
+  font-size: 22px;
   color: ${props=>props.color};
   white-space: pre;
 `
 const HeadshotImg = styled.img`
   padding-left: 10px;
-  width: 100%;
+  width: 450px;
   min-width: 300px;
-  max-width: 500px;
   object-fit: contain;
 
   @media screen and (max-width: 800px)
@@ -302,11 +291,6 @@ const HeadshotImg = styled.img`
     padding: 0;
     margin: 0;
   }
-
-  /* @media screen and (max-width: 600px)
-  {
-    display: none;
-  } */
 `
 const WorkWrapper = styled.div`
   display: flex;
@@ -345,7 +329,7 @@ const SmallHeading = styled.h2`
   margin-bottom: 10px;
   font-style: normal;
   font-weight: bolder;
-  font-size: calc(16px + 2vw);
+  font-size: 48px;
   color: ${props=>props.color};
 `
 const SmallText = styled.p`
@@ -353,7 +337,7 @@ const SmallText = styled.p`
   margin: 0;
   font-style: normal;
   font-weight: normal;
-  font-size: calc(12px + 0.5vw);
+  font-size: 20px;
   color: ${props=>props.color};
 `
 
