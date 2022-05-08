@@ -46,11 +46,6 @@ const Cont = styled(motion.div)`
     :hover {
         cursor: pointer;
     }
-    /* :after {
-        content: "";
-        display: block;
-        padding-bottom: 100%;
-    } */
     @media (max-width:1400px) {
         width: 100%;
         height: 40vh;
@@ -75,7 +70,7 @@ const Image = styled.img`
 `
 const Title = styled.span`
     font-family: "Circular";
-    font-size: calc(12px + 2vw);
+    font-size: 48px;
     font-weight: bold;
     font-style: normal;
     text-align: right;
@@ -84,7 +79,7 @@ const Title = styled.span`
 `
 const Info = styled.span`
     font-family: "Circular";
-    font-size: calc(12px + 0.3vw);
+    font-size: 16px;
     font-weight: normal;
     text-align: right;
     width: 100%;
