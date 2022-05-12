@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -17,8 +18,6 @@ import { comp_themes } from '../utils/variables';
 
 import {data} from '../data/data';
 
-
-
 export default function Home({
   minWidth="none"
 }) {
@@ -26,31 +25,57 @@ export default function Home({
   const r = useRouter();
   const {theme, setTheme} = useTheme();
 
+  const [belowThreshold, setBelowThreshold] = useState(false);
+
+  useEffect(() => {
+    
+    const resize = () => {
+      if (window.innerWidth < 1200) {
+        
+        console.log('window.innerWidth < 700');
+        setBelowThreshold(true)
+        // window.removeEventListener('resize', resize); // once
+      } else if (window.innerWidth > 1200) {
+        setBelowThreshold(false);
+      }
+    }
+    
+    window.addEventListener('resize', resize);
+  },[])
+
+
+
   return <>
     <CustomCursor/>
     <Wrapper>
     <NavBar />
+    {
+      !belowThreshold ? 
+
       <IntroCont>
-        <HeadshotCont>
-          <HeadshotImg src='/headshot-round.png'/>
-        </HeadshotCont>
+      <HeadshotCont>
+        <HeadshotImg src='/headshot-round.png'/>
+      </HeadshotCont>
+      <IntroTextCont>
+        <HeaderText color={comp_themes[theme].text_color}>
+          Hello,<br/>I'm Saihaj
+        </HeaderText>
 
-        <IntroTextCont>
-          <HeaderText color={comp_themes[theme].text_color}>
-            Hello,<br/>I'm Saihaj
-          </HeaderText>
+        <StudentText color={comp_themes[theme].text_color}>
+          I'm a graduating student <br/>from BCIT's Digital Design <br/>and Development Program.
+        </StudentText>
 
-          <StudentText color={comp_themes[theme].text_color}>
-            I'm a graduating student <br/>from BCIT's Digital Design <br/>and Development Program.
-          </StudentText>
+        <DescriptionText color={comp_themes[theme].text_color}>
+          I’m a Front End Developer who also <br/>has a strong understanding of UX/UI <br/>Design principles.
+        </DescriptionText>
 
-          <DescriptionText color={comp_themes[theme].text_color}>
-            I’m a Front End Developer who also <br/>has a strong understanding of UX/UI <br/>Design principles.
-          </DescriptionText>
+      </IntroTextCont>
 
-        </IntroTextCont>
+    </IntroCont> :
 
-      </IntroCont>
+      <div>Hello</div>
+    }
+
     </Wrapper>
 
     <WorkWrapper bgcolor='none' minWidth="none" id="development">
