@@ -67,7 +67,7 @@ export default function Home({
           </HeaderText>
 
           <StudentText color={comp_themes[theme].text_color}>
-            I'm a graduating student <br/>from BCIT's Digital Design <br/>and Development Program.
+            I'm a recent graduate from <br/>BCIT's Digital Design and <br/>Development Program.
           </StudentText>
 
           <DescriptionText color={comp_themes[theme].text_color}>
