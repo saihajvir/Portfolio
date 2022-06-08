@@ -19,7 +19,7 @@ export default function ScrollHeader({
 
 
 const Text = styled.span`
-    font-size: calc(36px + 4vw);
+    font-size: 100px;
     font-family: 'Circular';
     font-weight: bold;
     font-style: italic;
@@ -27,6 +27,11 @@ const Text = styled.span`
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: ${props=>props.color};
     margin: 0 10px 0 10px;
+
+    @media screen and (max-width: 980px)
+    {
+        font-size: calc(48px + 2vw);
+    }
 `
 const TextCont = styled.div`
     display: flex;

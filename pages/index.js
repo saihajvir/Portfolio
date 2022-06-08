@@ -1,14 +1,9 @@
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import ThemeButton from '../comps/ThemeButton';
 import ScrollHeader from '../comps/ScrollHeader';
 import FrefurnishBox from '../comps/FrefurnishBox';
 import EcoutureBox from '../comps/EcoutureBox';
@@ -16,36 +11,57 @@ import ForageBox from '../comps/ForageBox';
 import NavBar from '../comps/NavBar';
 import ExperienceText from '../comps/ExperienceText';
 import CustomCursor from '../comps/CustomCursor';
-import DownloadButton from '../comps/DownloadButton';
 import ContactForm from '../comps/ContactForm';
-import RecordSvg from '../comps/RecordSvg';
-import CameraSvg from '../comps/CameraSvg';
-import WatchSvg from '../comps/WatchSvg';
 
 import { useTheme } from '../utils/provider';
 import { comp_themes } from '../utils/variables';
 
 import {data} from '../data/data';
 
-
-
 export default function Home({
-  minWidth="none"
+  minWidth="none",
+  flexDir='row'
 }) {
 
   const r = useRouter();
   const {theme, setTheme} = useTheme();
 
+  const [belowThreshold, setBelowThreshold] = useState(false);
+  const [belowSecondThreshold, setBelowSecondThreshold] = useState(false);
+
+  useEffect(() => {
+    
+    const resize = () => {
+      if (window.innerWidth < 800) {
+        // console.log('window.innerWidth < 700');
+        setBelowSecondThreshold(true)
+        // window.removeEventListener('resize', resize); // once
+      } else if(window.innerWidth < 1200) {
+        setBelowThreshold(true)
+      } else if (window.innerWidth > 800 || window.innerWidth > 1200) {
+        setBelowThreshold(false);
+        setBelowSecondThreshold(false);
+      }
+    }
+    
+    window.addEventListener('resize', resize);
+  },[])
+
+
+
   return <>
     <CustomCursor/>
     <Wrapper>
     <NavBar />
+    {
+      !belowThreshold ? 
+
       <IntroCont>
         <HeadshotCont>
           <HeadshotImg src='/headshot-round.png'/>
         </HeadshotCont>
 
-        <IntroTextCont>
+        <IntroTextCont flexDir={flexDir}>
           <HeaderText color={comp_themes[theme].text_color}>
             Hello,<br/>I'm Saihaj
           </HeaderText>
@@ -60,14 +76,37 @@ export default function Home({
 
         </IntroTextCont>
 
+      </IntroCont> 
+    
+      :
+
+      <IntroCont flexDir='column'>
+        <HeadshotCont>
+          <HeadshotImg src='/headshot-round.png'/>
+        </HeadshotCont>
+
+        <HeaderText color={comp_themes[theme].text_color}>
+            Hello,<br/>I'm Saihaj
+          </HeaderText>
+
+          <DescriptionText color={comp_themes[theme].text_color}>
+            I’m a Front End Developer who also has a strong understanding of UX/UI Design principles.
+          </DescriptionText>
       </IntroCont>
+    }
+
     </Wrapper>
 
     <WorkWrapper bgcolor='none' minWidth="none" id="development">
 
       <WorkCont>
         <HeadingCont>
-          <ScrollHeader scrollText='Development'/>
+          {
+            !belowSecondThreshold ?
+            <ScrollHeader scrollText='Development'/>
+            :
+            <ScrollHeader scrollText='Dev.'/>
+          }
         </HeadingCont>
 
         <FrefurnishBox onClick={()=>r.push('https://github.com/saihajvir/frefurnish')}/>
@@ -81,71 +120,141 @@ export default function Home({
       <HeadingCont>
         <ScrollHeader scrollText="Résumé"/>
       </HeadingCont>
-      <WorkCont>
-        <TextCont dir="ltr">
-        
-        <ExpCont>
-          <SmallHeading color={comp_themes[theme].text_color}>
-            Work Experience
-          </SmallHeading>
 
-            <ExperienceText 
-              role_text="Specialist,"
-              place_text="Apple Guildford Town Centre"
-              date_text="August 2021 — October 2021"
-            />
-            <br/>
-            <ExperienceText 
-              role_text="Designated Sales Associate,"
-              place_text="Nordstrom Pacific Centre"
-              date_text="March 2017 — August 2020"
-            />
-        </ExpCont>
-        
-        <ExpCont>
-          <SmallHeading color={comp_themes[theme].text_color}>
-            Education
-          </SmallHeading>
+        {
+          !belowSecondThreshold ? 
+          
+          <WorkCont>
+            <TextCont dir="ltr">
+          
+            <ExpCont>
+              <SmallHeading color={comp_themes[theme].text_color}>
+                Work Experience
+              </SmallHeading>
+    
+                <ExperienceText 
+                  role_text="Specialist,"
+                  place_text="Apple Guildford Town Centre"
+                  date_text="August 2021 — October 2021"
+                />
+                <br/>
+                <ExperienceText 
+                  role_text="Designated Sales Associate,"
+                  place_text="Nordstrom Pacific Centre"
+                  date_text="March 2017 — August 2020"
+                />
+            </ExpCont>
+            
+            <ExpCont>
+              <SmallHeading color={comp_themes[theme].text_color}>
+                Education
+              </SmallHeading>
+    
+                <ExperienceText
+                  role_text="Digital Design and Development,"
+                  place_text="BCIT"
+                  date_text="September 2020 — Present"
+                />
+            </ExpCont>
+            </TextCont>
+    
+            <TextCont dir="rtl">
+              <ExpCont>
+                <SmallHeading color={comp_themes[theme].text_color}>
+                  Skills
+                </SmallHeading>
+                  <SmallText color={comp_themes[theme].text_color}>
+                    Front End Development <br/>
+                    Databasing <br/>
+                    UX/UI Design <br/>
+                    Wireframing <br/>
+                    Prototyping
+                  </SmallText>
+              </ExpCont>
+    
+              <ExpCont>
+                <SmallHeading color={comp_themes[theme].text_color}>
+                  Tools
+                </SmallHeading>
+                  <SmallText color={comp_themes[theme].text_color}>
+                    HTML, CSS, JavaScript <br/>
+                    React, Next.JS, React-Native <br/>
+                    Photoshop <br/>
+                    Illustrator <br/>
+                    Figma <br/>
+                    After Effects <br/>
+                    Visual Studio Code
+                  </SmallText>
+              </ExpCont>
+    
+            </TextCont> 
+          </WorkCont>
+          :
+          <WorkCont>
+            <TextCont dir="ltr">
+          
+            <ExpCont>
+              <SmallHeading color={comp_themes[theme].text_color}>
+                Work Experience
+              </SmallHeading>
+    
+                <ExperienceText 
+                  role_text="Specialist,"
+                  place_text="Apple Guildford Town Centre"
+                  date_text="August 2021 — October 2021"
+                />
+                <br/>
+                <ExperienceText 
+                  role_text="Designated Sales Associate,"
+                  place_text="Nordstrom Pacific Centre"
+                  date_text="March 2017 — August 2020"
+                />
+            </ExpCont>
+            
+            <ExpCont>
+              <SmallHeading color={comp_themes[theme].text_color}>
+                Education
+              </SmallHeading>
+    
+                <ExperienceText
+                  role_text="Digital Design and Development,"
+                  place_text="BCIT"
+                  date_text="September 2020 — Present"
+                />
+            </ExpCont>
+    
+              <ExpCont>
+                <SmallHeading color={comp_themes[theme].text_color}>
+                  Skills
+                </SmallHeading>
+                  <SmallText color={comp_themes[theme].text_color}>
+                    Front End Development <br/>
+                    Databasing <br/>
+                    UX/UI Design <br/>
+                    Wireframing <br/>
+                    Prototyping
+                  </SmallText>
+              </ExpCont>
+    
+              <ExpCont>
+                <SmallHeading color={comp_themes[theme].text_color}>
+                  Tools
+                </SmallHeading>
+                  <SmallText color={comp_themes[theme].text_color}>
+                    HTML, CSS, JavaScript <br/>
+                    React, Next.JS, React-Native <br/>
+                    Photoshop <br/>
+                    Illustrator <br/>
+                    Figma <br/>
+                    After Effects <br/>
+                    Visual Studio Code
+                  </SmallText>
+              </ExpCont>
+              </TextCont>
+    
+          </WorkCont>
+        }
 
-            <ExperienceText
-              role_text="Digital Design and Development,"
-              place_text="BCIT"
-              date_text="September 2020 — Present"
-            />
-        </ExpCont>
-        </TextCont>
-
-        <TextCont dir="rtl">
-          <ExpCont>
-            <SmallHeading color={comp_themes[theme].text_color}>
-              Skills
-            </SmallHeading>
-              <SmallText color={comp_themes[theme].text_color}>
-                Front End Development <br/>
-                Databasing <br/>
-                UX/UI Design <br/>
-                Wireframing <br/>
-                Prototyping
-              </SmallText>
-          </ExpCont>
-
-          <ExpCont>
-            <SmallHeading color={comp_themes[theme].text_color}>
-              Tools
-            </SmallHeading>
-              <SmallText color={comp_themes[theme].text_color}>
-                HTML, CSS, JavaScript <br/>
-                React, Next.JS, React-Native <br/>
-                Photoshop <br/>
-                Illustrator <br/>
-                Figma <br/>
-                After Effects <br/>
-                Visual Studio Code
-              </SmallText>
-          </ExpCont>
-
-        </TextCont>
-      </WorkCont>
       {/* <DownloadButton/> */}
     </WorkWrapper>
 
@@ -216,7 +325,7 @@ const Wrapper = styled.div`
 `
 const IntroCont = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({flexDir}) => flexDir};
   max-width: 1000px;
   min-height: 30vh;
   width: 100%;
@@ -232,6 +341,7 @@ const HeadshotCont = styled(motion.div)`
   /* background-color: green; */
   margin-top: 20px;
   align-items: flex-start;
+  justify-content: center;
   flex: 1;
   margin-right: 1vw;
 
@@ -261,7 +371,7 @@ const HeaderText = styled.span`
   font-family: 'Circular';
   font-weight: bold;
   font-style: italic;
-  font-size: calc(36px + 4vw);
+  font-size: 100px;
   line-height: 100%;
   text-align: left;
   color: #00000000;
@@ -269,44 +379,49 @@ const HeaderText = styled.span`
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: ${props=>props.color};
 
-  @media screen and (max-width: 600px) 
+  @media screen and (max-width: 1200px) 
   {
+    white-space: normal;
     text-align: center;
+    font-size: calc(25px + 7vw);
   }
 `
 const StudentText = styled.span`
   font-family: 'Circular';
   font-weight: bold;
-  font-size: calc(16px + 1vw);
+  font-size: 36px;
   color: ${props=>props.color};
   white-space: pre;
 `
 const DescriptionText = styled.p`
   font-family: 'Circular';
   font-weight: normal;
-  font-size: calc(12px + 0.7vw);
+  font-size: 22px;
   color: ${props=>props.color};
   white-space: pre;
+
+  @media screen and (max-width: 1200px)
+  {
+    white-space: normal;
+    text-align: center;
+    width: 75%;
+    align-self: center;
+    font-size: calc(6px + 1.5vw);
+  }
 `
 const HeadshotImg = styled.img`
   padding-left: 10px;
-  width: 100%;
+  width: 450px;
   min-width: 300px;
-  max-width: 500px;
   object-fit: contain;
 
-  @media screen and (max-width: 800px)
+  @media screen and (max-width: 1200px)
   {
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 400px;
     padding: 0;
     margin: 0;
   }
-
-  /* @media screen and (max-width: 600px)
-  {
-    display: none;
-  } */
 `
 const WorkWrapper = styled.div`
   display: flex;
@@ -345,7 +460,7 @@ const SmallHeading = styled.h2`
   margin-bottom: 10px;
   font-style: normal;
   font-weight: bolder;
-  font-size: calc(16px + 2vw);
+  font-size: 48px;
   color: ${props=>props.color};
 `
 const SmallText = styled.p`
