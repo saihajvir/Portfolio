@@ -52,6 +52,7 @@ const NavCont = styled.div`
     font-family: 'Circular';
     z-index: 1000;
     justify-content: center;
+    transition: 1s;
 `
 const InnerCont = styled.div`
     display: flex;
