@@ -50,7 +50,7 @@ export default function Home({
 
 
   return <>
-    <CustomCursor/>
+    {/* <CustomCursor/> */}
     <Wrapper>
     <NavBar />
     {
@@ -86,12 +86,16 @@ export default function Home({
         </HeadshotCont>
 
         <HeaderText color={comp_themes[theme].text_color}>
-            Hello,<br/>I'm Saihaj
-          </HeaderText>
+          Hello,<br/>I'm Saihaj
+        </HeaderText>
 
-          <DescriptionText color={comp_themes[theme].text_color}>
-            I’m a Front End Developer who also has a strong understanding of UX/UI Design principles.
-          </DescriptionText>
+        <StudentText color={comp_themes[theme].text_color}>
+            I'm a recent graduate from <br/>BCIT's Digital Design and <br/>Development Program.
+        </StudentText>
+
+        <DescriptionText color={comp_themes[theme].text_color}>
+          I’m a Front End Developer who also has a strong understanding of UX/UI Design principles.
+        </DescriptionText>
       </IntroCont>
     }
 
@@ -368,7 +372,7 @@ const IntroTextCont = styled.div`
   }
 `
 const HeaderText = styled.span`
-  font-family: 'Circular';
+  font-family: 'Circular', Helvetica, Arial;
   font-weight: bold;
   font-style: italic;
   font-size: 100px;
@@ -392,6 +396,11 @@ const StudentText = styled.span`
   font-size: 36px;
   color: ${props=>props.color};
   white-space: pre;
+
+  @media screen and (max-width: 1200px)
+  {
+    display: none;
+  }
 `
 const DescriptionText = styled.p`
   font-family: 'Circular';
