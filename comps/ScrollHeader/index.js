@@ -27,6 +27,11 @@ const Text = styled.span`
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: ${props=>props.color};
     margin: 0 10px 0 10px;
+
+    @media screen and (max-width: 980px)
+    {
+        font-size: calc(48px + 2vw);
+    }
 `
 const TextCont = styled.div`
     display: flex;

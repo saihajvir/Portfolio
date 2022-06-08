@@ -54,10 +54,19 @@ const Cont = styled(motion.div)`
         height: 40vh;
         padding: 10px;
     }
+    @media screen and (max-width: 980px)
+    {
+        justify-content: center;
+        align-items: center;
+    }
 `
 const ImageCont = styled.div`
     display: flex;
     flex: 1;
+    @media screen and (max-width: 980px)
+    {
+        display: none;
+    }
 `
 const InfoCont = styled.div`
     display: flex;
@@ -66,6 +75,11 @@ const InfoCont = styled.div`
     padding: 10px 20px 0 0;
     position: absolute;
     right: 0;
+    @media screen and (max-width: 980px)
+    {
+        padding: 0;
+        position: relative;
+    }
 `
 const Image = styled.img`
     width: 280px;
@@ -73,6 +87,10 @@ const Image = styled.img`
     object-fit: contain;
     left: -10px;
     position: relative;
+    @media screen and (max-width: 980px)
+    {
+        display: none;
+    }
 `
 const Title = styled.span`
     font-family: "Circular";
@@ -82,6 +100,10 @@ const Title = styled.span`
     text-align: right;
     width: 100%;
     color: ${props=>props.color};
+    @media screen and (max-width: 980px)
+    {
+        text-align: center;
+    }
 `
 const Info = styled.span`
     font-family: "Circular";
@@ -90,4 +112,9 @@ const Info = styled.span`
     text-align: right;
     width: 100%;
     color: ${props=>props.color};
+    @media screen and (max-width: 980px)
+    {
+        text-align: center;
+    }
 `
+

@@ -27,17 +27,20 @@ export default function Home({
   const {theme, setTheme} = useTheme();
 
   const [belowThreshold, setBelowThreshold] = useState(false);
+  const [belowSecondThreshold, setBelowSecondThreshold] = useState(false);
 
   useEffect(() => {
     
     const resize = () => {
-      if (window.innerWidth < 1200) {
-        
-        console.log('window.innerWidth < 700');
-        setBelowThreshold(true)
+      if (window.innerWidth < 800) {
+        // console.log('window.innerWidth < 700');
+        setBelowSecondThreshold(true)
         // window.removeEventListener('resize', resize); // once
-      } else if (window.innerWidth > 1200) {
+      } else if(window.innerWidth < 1200) {
+        setBelowThreshold(true)
+      } else if (window.innerWidth > 800 || window.innerWidth > 1200) {
         setBelowThreshold(false);
+        setBelowSecondThreshold(false);
       }
     }
     
@@ -73,21 +76,23 @@ export default function Home({
 
         </IntroTextCont>
 
-      </IntroCont> :
+      </IntroCont> 
+    
+      :
 
-    <IntroCont flexDir='column'>
-      <HeadshotCont>
-        <HeadshotImg src='/headshot-round.png'/>
-      </HeadshotCont>
+      <IntroCont flexDir='column'>
+        <HeadshotCont>
+          <HeadshotImg src='/headshot-round.png'/>
+        </HeadshotCont>
 
-      <HeaderText color={comp_themes[theme].text_color}>
-          Hello,<br/>I'm Saihaj
-        </HeaderText>
+        <HeaderText color={comp_themes[theme].text_color}>
+            Hello,<br/>I'm Saihaj
+          </HeaderText>
 
-        <DescriptionText color={comp_themes[theme].text_color}>
-          I’m a Front End Developer who also has a strong understanding of UX/UI Design principles.
-        </DescriptionText>
-    </IntroCont>
+          <DescriptionText color={comp_themes[theme].text_color}>
+            I’m a Front End Developer who also has a strong understanding of UX/UI Design principles.
+          </DescriptionText>
+      </IntroCont>
     }
 
     </Wrapper>
@@ -96,7 +101,12 @@ export default function Home({
 
       <WorkCont>
         <HeadingCont>
-          <ScrollHeader scrollText='Development'/>
+          {
+            !belowSecondThreshold ?
+            <ScrollHeader scrollText='Development'/>
+            :
+            <ScrollHeader scrollText='Dev.'/>
+          }
         </HeadingCont>
 
         <FrefurnishBox onClick={()=>r.push('https://github.com/saihajvir/frefurnish')}/>
@@ -110,71 +120,141 @@ export default function Home({
       <HeadingCont>
         <ScrollHeader scrollText="Résumé"/>
       </HeadingCont>
-      <WorkCont>
-        <TextCont dir="ltr">
-        
-        <ExpCont>
-          <SmallHeading color={comp_themes[theme].text_color}>
-            Work Experience
-          </SmallHeading>
 
-            <ExperienceText 
-              role_text="Specialist,"
-              place_text="Apple Guildford Town Centre"
-              date_text="August 2021 — October 2021"
-            />
-            <br/>
-            <ExperienceText 
-              role_text="Designated Sales Associate,"
-              place_text="Nordstrom Pacific Centre"
-              date_text="March 2017 — August 2020"
-            />
-        </ExpCont>
-        
-        <ExpCont>
-          <SmallHeading color={comp_themes[theme].text_color}>
-            Education
-          </SmallHeading>
+        {
+          !belowSecondThreshold ? 
+          
+          <WorkCont>
+            <TextCont dir="ltr">
+          
+            <ExpCont>
+              <SmallHeading color={comp_themes[theme].text_color}>
+                Work Experience
+              </SmallHeading>
+    
+                <ExperienceText 
+                  role_text="Specialist,"
+                  place_text="Apple Guildford Town Centre"
+                  date_text="August 2021 — October 2021"
+                />
+                <br/>
+                <ExperienceText 
+                  role_text="Designated Sales Associate,"
+                  place_text="Nordstrom Pacific Centre"
+                  date_text="March 2017 — August 2020"
+                />
+            </ExpCont>
+            
+            <ExpCont>
+              <SmallHeading color={comp_themes[theme].text_color}>
+                Education
+              </SmallHeading>
+    
+                <ExperienceText
+                  role_text="Digital Design and Development,"
+                  place_text="BCIT"
+                  date_text="September 2020 — Present"
+                />
+            </ExpCont>
+            </TextCont>
+    
+            <TextCont dir="rtl">
+              <ExpCont>
+                <SmallHeading color={comp_themes[theme].text_color}>
+                  Skills
+                </SmallHeading>
+                  <SmallText color={comp_themes[theme].text_color}>
+                    Front End Development <br/>
+                    Databasing <br/>
+                    UX/UI Design <br/>
+                    Wireframing <br/>
+                    Prototyping
+                  </SmallText>
+              </ExpCont>
+    
+              <ExpCont>
+                <SmallHeading color={comp_themes[theme].text_color}>
+                  Tools
+                </SmallHeading>
+                  <SmallText color={comp_themes[theme].text_color}>
+                    HTML, CSS, JavaScript <br/>
+                    React, Next.JS, React-Native <br/>
+                    Photoshop <br/>
+                    Illustrator <br/>
+                    Figma <br/>
+                    After Effects <br/>
+                    Visual Studio Code
+                  </SmallText>
+              </ExpCont>
+    
+            </TextCont> 
+          </WorkCont>
+          :
+          <WorkCont>
+            <TextCont dir="ltr">
+          
+            <ExpCont>
+              <SmallHeading color={comp_themes[theme].text_color}>
+                Work Experience
+              </SmallHeading>
+    
+                <ExperienceText 
+                  role_text="Specialist,"
+                  place_text="Apple Guildford Town Centre"
+                  date_text="August 2021 — October 2021"
+                />
+                <br/>
+                <ExperienceText 
+                  role_text="Designated Sales Associate,"
+                  place_text="Nordstrom Pacific Centre"
+                  date_text="March 2017 — August 2020"
+                />
+            </ExpCont>
+            
+            <ExpCont>
+              <SmallHeading color={comp_themes[theme].text_color}>
+                Education
+              </SmallHeading>
+    
+                <ExperienceText
+                  role_text="Digital Design and Development,"
+                  place_text="BCIT"
+                  date_text="September 2020 — Present"
+                />
+            </ExpCont>
+    
+              <ExpCont>
+                <SmallHeading color={comp_themes[theme].text_color}>
+                  Skills
+                </SmallHeading>
+                  <SmallText color={comp_themes[theme].text_color}>
+                    Front End Development <br/>
+                    Databasing <br/>
+                    UX/UI Design <br/>
+                    Wireframing <br/>
+                    Prototyping
+                  </SmallText>
+              </ExpCont>
+    
+              <ExpCont>
+                <SmallHeading color={comp_themes[theme].text_color}>
+                  Tools
+                </SmallHeading>
+                  <SmallText color={comp_themes[theme].text_color}>
+                    HTML, CSS, JavaScript <br/>
+                    React, Next.JS, React-Native <br/>
+                    Photoshop <br/>
+                    Illustrator <br/>
+                    Figma <br/>
+                    After Effects <br/>
+                    Visual Studio Code
+                  </SmallText>
+              </ExpCont>
+              </TextCont>
+    
+          </WorkCont>
+        }
 
-            <ExperienceText
-              role_text="Digital Design and Development,"
-              place_text="BCIT"
-              date_text="September 2020 — Present"
-            />
-        </ExpCont>
-        </TextCont>
-
-        <TextCont dir="rtl">
-          <ExpCont>
-            <SmallHeading color={comp_themes[theme].text_color}>
-              Skills
-            </SmallHeading>
-              <SmallText color={comp_themes[theme].text_color}>
-                Front End Development <br/>
-                Databasing <br/>
-                UX/UI Design <br/>
-                Wireframing <br/>
-                Prototyping
-              </SmallText>
-          </ExpCont>
-
-          <ExpCont>
-            <SmallHeading color={comp_themes[theme].text_color}>
-              Tools
-            </SmallHeading>
-              <SmallText color={comp_themes[theme].text_color}>
-                HTML, CSS, JavaScript <br/>
-                React, Next.JS, React-Native <br/>
-                Photoshop <br/>
-                Illustrator <br/>
-                Figma <br/>
-                After Effects <br/>
-                Visual Studio Code
-              </SmallText>
-          </ExpCont>
-
-        </TextCont>
-      </WorkCont>
       {/* <DownloadButton/> */}
     </WorkWrapper>
 
@@ -388,7 +468,7 @@ const SmallText = styled.p`
   margin: 0;
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
+  font-size: calc(12px + 0.5vw);
   color: ${props=>props.color};
 `
 
