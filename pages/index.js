@@ -19,7 +19,8 @@ import { comp_themes } from '../utils/variables';
 import {data} from '../data/data';
 
 export default function Home({
-  minWidth="none"
+  minWidth="none",
+  flexDir='row'
 }) {
 
   const r = useRouter();
@@ -53,27 +54,40 @@ export default function Home({
       !belowThreshold ? 
 
       <IntroCont>
+        <HeadshotCont>
+          <HeadshotImg src='/headshot-round.png'/>
+        </HeadshotCont>
+
+        <IntroTextCont flexDir={flexDir}>
+          <HeaderText color={comp_themes[theme].text_color}>
+            Hello,<br/>I'm Saihaj
+          </HeaderText>
+
+          <StudentText color={comp_themes[theme].text_color}>
+            I'm a graduating student <br/>from BCIT's Digital Design <br/>and Development Program.
+          </StudentText>
+
+          <DescriptionText color={comp_themes[theme].text_color}>
+            I’m a Front End Developer who also <br/>has a strong understanding of UX/UI <br/>Design principles.
+          </DescriptionText>
+
+        </IntroTextCont>
+
+      </IntroCont> :
+
+    <IntroCont flexDir='column'>
       <HeadshotCont>
         <HeadshotImg src='/headshot-round.png'/>
       </HeadshotCont>
-      <IntroTextCont>
-        <HeaderText color={comp_themes[theme].text_color}>
+
+      <HeaderText color={comp_themes[theme].text_color}>
           Hello,<br/>I'm Saihaj
         </HeaderText>
 
-        <StudentText color={comp_themes[theme].text_color}>
-          I'm a graduating student <br/>from BCIT's Digital Design <br/>and Development Program.
-        </StudentText>
-
         <DescriptionText color={comp_themes[theme].text_color}>
-          I’m a Front End Developer who also <br/>has a strong understanding of UX/UI <br/>Design principles.
+          I’m a Front End Developer who also has a strong understanding of UX/UI Design principles.
         </DescriptionText>
-
-      </IntroTextCont>
-
-    </IntroCont> :
-
-      <div>Hello</div>
+    </IntroCont>
     }
 
     </Wrapper>
@@ -231,7 +245,7 @@ const Wrapper = styled.div`
 `
 const IntroCont = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({flexDir}) => flexDir};
   max-width: 1000px;
   min-height: 30vh;
   width: 100%;
@@ -247,6 +261,7 @@ const HeadshotCont = styled(motion.div)`
   /* background-color: green; */
   margin-top: 20px;
   align-items: flex-start;
+  justify-content: center;
   flex: 1;
   margin-right: 1vw;
 
@@ -284,9 +299,11 @@ const HeaderText = styled.span`
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: ${props=>props.color};
 
-  @media screen and (max-width: 600px) 
+  @media screen and (max-width: 1200px) 
   {
+    white-space: normal;
     text-align: center;
+    font-size: calc(25px + 7vw);
   }
 `
 const StudentText = styled.span`
@@ -302,6 +319,15 @@ const DescriptionText = styled.p`
   font-size: 22px;
   color: ${props=>props.color};
   white-space: pre;
+
+  @media screen and (max-width: 1200px)
+  {
+    white-space: normal;
+    text-align: center;
+    width: 75%;
+    align-self: center;
+    font-size: calc(6px + 1.5vw);
+  }
 `
 const HeadshotImg = styled.img`
   padding-left: 10px;
@@ -309,10 +335,10 @@ const HeadshotImg = styled.img`
   min-width: 300px;
   object-fit: contain;
 
-  @media screen and (max-width: 800px)
+  @media screen and (max-width: 1200px)
   {
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 400px;
     padding: 0;
     margin: 0;
   }
