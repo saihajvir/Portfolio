@@ -42,12 +42,14 @@ const MenuBackground = styled.div`
     display: flex;
     flex-direction: column;
     background-color: ${({bgcolor}) => bgcolor};
-    position: absolute;
+    position: fixed;
+    top: 0;
     width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
     transition: 1s;
+    z-index: 10;
 
     @media screen and (min-width: 1200px)
     {

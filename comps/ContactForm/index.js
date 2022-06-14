@@ -89,6 +89,11 @@ const FormInput = styled.input`
     margin: 10px 0 10px 0;
     font-family: 'Circular';
     max-width:1000px ;
+
+    @media screen and (max-width: 700px)
+    {
+        width: 80vw;
+    }
 `
 const FormButton = styled(motion.input)`
     width: 60vw;
@@ -104,6 +109,11 @@ const FormButton = styled(motion.input)`
     :hover {
         cursor: pointer;
     }
+
+    @media screen and (max-width: 700px)
+    {
+        width: 80vw;
+    }
 `
 const FormText = styled.textarea`
     width: 60vw;
@@ -117,5 +127,10 @@ const FormText = styled.textarea`
     border: ${props=>props.bordercolor} solid 3px;
     color: ${props=>props.color};
     max-width:1000px ;
+
+    @media screen and (max-width: 700px)
+    {
+        width: 80vw;
+    }
 
 `
