@@ -63,6 +63,11 @@ const NavCont = styled.div`
 const InnerCont = styled.div`
     display: flex;
     width: 60vw;
+    
+    @media screen and (max-width: 700px)
+    {
+        width: 80vw;
+    }
 `
 const LeftCont = styled.div`
     display: flex;
