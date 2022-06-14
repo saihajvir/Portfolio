@@ -6,7 +6,8 @@ import Link from "next/link";
 import ToggleSwitch from "../ToggleSwitch";
 
 export default function HamburgerMenu({
-    onMenuItemClick=()=>{}
+    onMenuItemClick=()=>{},
+    anim
 })
 {
     const {theme, setTheme} = useTheme();
@@ -23,6 +24,7 @@ export default function HamburgerMenu({
     return<>
         <MenuBackground 
             bgcolor={themes[theme].body}
+            anim={anim}
         >
             <MenuItem>
                 <ToggleSwitch
@@ -52,6 +54,25 @@ const MenuBackground = styled.div`
     align-items: center;
     transition: 1s;
     z-index: 10;
+    animation: ${({anim}) => anim};
+
+    @keyframes changeHeight {
+        0% {
+            height: 0;
+        }
+        100% {
+            height: 100vh;
+        }
+    }
+
+    @keyframes closeHeight {
+        from {
+            height: 100vh;
+        } to {
+            height: 0vh;
+        }
+        
+    }
 
     @media screen and (min-width: 1200px)
     {

@@ -397,6 +397,7 @@ const HeaderText = styled.span`
     white-space: normal;
     text-align: center;
     font-size: calc(25px + 7vw);
+    margin-top: 30px;
   }
 `
 const StudentText = styled.span`

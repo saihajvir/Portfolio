@@ -81,7 +81,7 @@ function MyApp({ Component, pageProps }) {
     {
       menuOpen ?
       <HamburgerMenu
-        onMenuItemClick={triggerMenu  }
+        onMenuItemClick={triggerMenu}
       />
       :
       <></>
