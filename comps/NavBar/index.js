@@ -7,8 +7,11 @@ import { comp_themes } from "../../utils/variables";
 
 import ThemeButton from "../ThemeButton";
 import ToggleSwitch from "../ToggleSwitch";
+import HamburgerMenuIcon from "../HamburgerMenuIcon";
 
-export default function NavBar()
+export default function NavBar({
+    onHambClick=()=>{}
+})
 {
     const {theme, setTheme} = useTheme();
     const [isToggled, setIsToggled] = useState(false);
@@ -26,16 +29,19 @@ export default function NavBar()
               <MenuItem color={comp_themes[theme].text_color} style={{margin: 0}}><Link href="/">saihajvir.com</Link></MenuItem>
             </LeftCont>
             <RightCont>
-                <MenuItem color={comp_themes[theme].text_color}><Link href="/#development">Development</Link></MenuItem>
-                <MenuItem color={comp_themes[theme].text_color}><Link href="/#resume">Resume</Link></MenuItem>
-                <MenuItem color={comp_themes[theme].text_color}><Link href="/#about">About</Link></MenuItem>
-                <MenuItem color={comp_themes[theme].text_color}><Link href="/#contact">Contact</Link></MenuItem>
-                <MenuItem color={comp_themes[theme].text_color}><Link href="https://github.com/saihajvir/">GitHub</Link></MenuItem>
-                <MenuItem color={comp_themes[theme].text_color}><Link href="https://www.linkedin.com/in/saihajvir-gill-2b4271230">LinkedIn</Link></MenuItem>
-                <ToggleSwitch
-                    lineBgColor={isToggled === true ? "#EFE6DD": "#1F2933" }
-                    onSwitchClick={Toggle}
-                />
+                <MenuItemCont>                
+                    <MenuItem color={comp_themes[theme].text_color}><Link href="/#development">Development</Link></MenuItem>
+                    <MenuItem color={comp_themes[theme].text_color}><Link href="/#resume">Resume</Link></MenuItem>
+                    <MenuItem color={comp_themes[theme].text_color}><Link href="/#about">About</Link></MenuItem>
+                    <MenuItem color={comp_themes[theme].text_color}><Link href="/#contact">Contact</Link></MenuItem>
+                    <MenuItem color={comp_themes[theme].text_color}><Link href="https://github.com/saihajvir/">GitHub</Link></MenuItem>
+                    <MenuItem color={comp_themes[theme].text_color}><Link href="https://www.linkedin.com/in/saihajvir-gill-2b4271230">LinkedIn</Link></MenuItem>
+                    <ToggleSwitch
+                        lineBgColor={isToggled === true ? "#EFE6DD": "#1F2933" }
+                        onSwitchClick={Toggle}
+                    />
+                </MenuItemCont>
+            <HamburgerMenuIcon onHambClick={onHambClick}/>
             </RightCont>
             </InnerCont>
         </NavCont>
@@ -69,6 +75,14 @@ const RightCont = styled.div`
     flex: 2;
     align-items: center;
     justify-content: flex-end;
+`
+
+const MenuItemCont = styled.div`
+    display: flex;
+    @media screen and (max-width: 1200px)
+    {
+        display: none;
+    }
 `
 const MenuItem = styled.div`
     margin-left: 1vw;

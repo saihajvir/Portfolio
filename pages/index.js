@@ -52,7 +52,7 @@ export default function Home({
   return <>
     {/* <CustomCursor/> */}
     <Wrapper>
-    <NavBar />
+    {/* <NavBar onMenuClick={()=>console.log("clicked on index")}/> */}
     {
       !belowThreshold ? 
 
