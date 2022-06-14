@@ -2,7 +2,10 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import Link from 'next/link'
 import { createGlobalStyle } from "styled-components";
+import { useState } from 'react';
 import AppProvider from '../utils/provider';
+import NavBar from '@/comps/NavBar';
+import HamburgerMenu from '@/comps/HamburgerMenu';
 
 const GlobalStyle = createGlobalStyle`
    @font-face {
@@ -64,7 +67,25 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function MyApp({ Component, pageProps }) {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const triggerMenu = () => {
+      setMenuOpen(!menuOpen);
+      console.log(menuOpen);
+  }
+
+
   return <AppProvider>
+    <NavBar onHambClick={triggerMenu}/>
+    {
+      menuOpen ?
+      <HamburgerMenu
+        onMenuItemClick={triggerMenu}
+      />
+      :
+      <></>
+    }
     <div>
       <Head>
         <title>Saihajvir Gill | Front End Developer Portfolio | BCIT D3 2022</title>

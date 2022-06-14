@@ -52,7 +52,7 @@ export default function Home({
   return <>
     {/* <CustomCursor/> */}
     <Wrapper>
-    <NavBar />
+    {/* <NavBar onMenuClick={()=>console.log("clicked on index")}/> */}
     {
       !belowThreshold ? 
 
@@ -326,6 +326,11 @@ const Wrapper = styled.div`
   background-color: ${props=>props.bg};
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 700px)
+  {
+    width: 80vw;
+  }
 `
 const IntroCont = styled.div`
   display: flex;
@@ -338,6 +343,10 @@ const IntroCont = styled.div`
   @media screen and (max-width: 800px)
   {
     flex-direction: column;
+  }
+  @media screen and (max-width: 700px)
+  {
+    width: 80vw;
   }
 `
 const HeadshotCont = styled(motion.div)`
@@ -388,6 +397,7 @@ const HeaderText = styled.span`
     white-space: normal;
     text-align: center;
     font-size: calc(25px + 7vw);
+    margin-top: 30px;
   }
 `
 const StudentText = styled.span`
@@ -442,6 +452,11 @@ const WorkWrapper = styled.div`
   min-width: ${props=>props.minWidth};
   margin: 0 auto;
   background-color: ${props=>props.bgcolor};
+
+  @media screen and (max-width: 700px)
+  {
+    width: 80vw;
+  }
 `
 const HeadingCont = styled.div`
   display: flex;
