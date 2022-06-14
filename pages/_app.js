@@ -70,17 +70,19 @@ function MyApp({ Component, pageProps }) {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const openMenu = () => {
+  const triggerMenu = () => {
       setMenuOpen(!menuOpen);
       console.log(menuOpen);
   }
 
 
   return <AppProvider>
-    <NavBar onHambClick={openMenu}/>
+    <NavBar onHambClick={triggerMenu}/>
     {
       menuOpen ?
-      <HamburgerMenu/>
+      <HamburgerMenu
+        onMenuItemClick={triggerMenu  }
+      />
       :
       <></>
     }
