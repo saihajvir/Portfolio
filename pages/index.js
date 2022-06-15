@@ -271,21 +271,17 @@ export default function Home({
         Profile
       </SmallHeading>
 
-      {data.map((data, i)=>
-        <SmallText color={comp_themes[theme].text_color} key={i}>
+        <SmallText color={comp_themes[theme].text_color}>
           {data.profile}
         </SmallText>
-      )}
 
       <SmallHeading color={comp_themes[theme].text_color}>
         What can I do?
       </SmallHeading>
 
-      {data.map((data, i)=>
-        <SmallText color={comp_themes[theme].text_color} key={i}>
+        <SmallText color={comp_themes[theme].text_color}>
           {data.skill_desc}
         </SmallText>
-      )}
 
       {/* <SvgCont>
         <RecordSvg width="calc(100px + 7vw)" fill={comp_themes[theme].svg_color} />
