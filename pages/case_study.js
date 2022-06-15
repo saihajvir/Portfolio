@@ -10,8 +10,8 @@ import { data } from '@/data/data';
 export default function CaseStudy({
 })
 {
-
     const {theme, setTheme} = useTheme();
+    
     return <>
         <Wrapper>
             <HeadingWrapper>
@@ -74,14 +74,14 @@ export default function CaseStudy({
 
                 <HorizCont>
                     <HalfCont>
-                        <img src='/frefurnish-iphone.png' width='80%'/>
+                        <img src='/code-debugging.png' width='100%' style={{borderRadius:10}}/>
                     </HalfCont>
                     <HalfCont>
                         <CodeHeading color={comp_themes[theme].text_color}>
                             &lt;Debugging&gt; 
                         </CodeHeading>
                             <TextContent color={comp_themes[theme].text_color}>
-                                {data.development}
+                                {data.debugging}
                             </TextContent>
                         <CodeHeading color={comp_themes[theme].text_color}>
                             &lt;/Debugging&gt; 
@@ -125,7 +125,7 @@ const ContentCont = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 2000px;
+    /* height: 2000px; */
 `
 
 const FrefurnishText = styled.h2`

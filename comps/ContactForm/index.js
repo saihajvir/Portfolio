@@ -61,8 +61,6 @@ export default function ContactForm()
                     bordercolor={comp_themes[theme].border_color}
                     color={comp_themes[theme].text_color}
 
-                    drag="x"
-                    dragConstraints={{ left: -100, right: 100 }}
                     whileHover={{scale: 1.1}}
                     whileTap={{ scale: 0.9 }}
 
