@@ -11,7 +11,7 @@ export default function CaseStudy({
 })
 {
     const {theme, setTheme} = useTheme();
-    
+
     return <>
         <Wrapper>
             <HeadingWrapper>
