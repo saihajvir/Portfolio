@@ -17,7 +17,7 @@ export default function HamburgerMenu({
     const Toggle = () => {
         setTheme(theme === 'dark' ? 'default' : 'dark');
         setIsToggled(!isToggled);
-        console.log(isToggled, "toggle")
+        // console.log(isToggled, "toggle")
     }
     
 
@@ -36,6 +36,7 @@ export default function HamburgerMenu({
             <MenuItem onClick={onMenuItemClick} color={comp_themes[theme].text_color}><Link href="/#resume">Resume</Link></MenuItem>
             <MenuItem onClick={onMenuItemClick} color={comp_themes[theme].text_color}><Link href="/#about">About</Link></MenuItem>
             <MenuItem onClick={onMenuItemClick} color={comp_themes[theme].text_color}><Link href="/#contact">Contact</Link></MenuItem>
+            <MenuItem onClick={onMenuItemClick} color={comp_themes[theme].text_color}><Link href="/case_study">Case Study</Link></MenuItem>
             <MenuItem onClick={onMenuItemClick} color={comp_themes[theme].text_color}><Link href="https://github.com/saihajvir/">GitHub</Link></MenuItem>
             <MenuItem onClick={onMenuItemClick} color={comp_themes[theme].text_color}><Link href="https://www.linkedin.com/in/saihajvir-gill-2b4271230">LinkedIn</Link></MenuItem>
         </MenuBackground>

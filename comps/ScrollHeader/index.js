@@ -23,6 +23,7 @@ const Text = styled.span`
     font-family: 'Circular';
     font-weight: bold;
     font-style: italic;
+    white-space: nowrap;
     color: #00000000;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: ${props=>props.color};
