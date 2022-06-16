@@ -12,6 +12,21 @@ export default function CaseStudy({
 {
     const {theme, setTheme} = useTheme();
 
+    const [belowThreshold, setBelowThreshold] = useState(false);
+  
+    useEffect(() => {
+      
+      const resize = () => {
+        if(window.innerWidth < 1200) {
+          setBelowThreshold(true)
+        } else if (window.innerWidth > 1200) {
+          setBelowThreshold(false);
+        }
+      }
+      window.addEventListener('resize', resize);
+    },[])
+  
+
     return <>
         <Wrapper>
             <HeadingWrapper>
@@ -39,20 +54,42 @@ export default function CaseStudy({
                 </HorizCont>
 
                 <HorizCont>
-                    <HalfCont>
-                        <img src='/case_study/prototyping.png' width='100%'/>
-                    </HalfCont>
-                    <HalfCont>
-                        <CodeHeading color={comp_themes[theme].text_color}>
-                            &lt;Prototyping&gt; 
-                        </CodeHeading>
-                            <TextContent color={comp_themes[theme].text_color}>
-                                {data.prototyping}
-                            </TextContent>
-                        <CodeHeading color={comp_themes[theme].text_color}>
-                            &lt;/Prototyping&gt; 
-                        </CodeHeading>
-                    </HalfCont>
+                    {
+                        !belowThreshold ?
+                        <>
+                        <HalfCont>
+                            <img src='/case_study/prototyping.png' width='100%'/>
+                        </HalfCont>
+                        <HalfCont>
+                            <CodeHeading color={comp_themes[theme].text_color}>
+                                &lt;Prototyping&gt; 
+                            </CodeHeading>
+                                <TextContent color={comp_themes[theme].text_color}>
+                                    {data.prototyping}
+                                </TextContent>
+                            <CodeHeading color={comp_themes[theme].text_color}>
+                                &lt;/Prototyping&gt; 
+                            </CodeHeading>
+                        </HalfCont>
+                        </>
+                        :
+                       <>
+                        <HalfCont>
+                            <CodeHeading color={comp_themes[theme].text_color}>
+                                &lt;Prototyping&gt; 
+                            </CodeHeading>
+                                <TextContent color={comp_themes[theme].text_color}>
+                                    {data.prototyping}
+                                </TextContent>
+                            <CodeHeading color={comp_themes[theme].text_color}>
+                                &lt;/Prototyping&gt; 
+                            </CodeHeading>
+                        </HalfCont>
+                        <HalfCont>
+                            <img src='/case_study/prototyping.png' width='100%'/>
+                        </HalfCont>
+                        </>
+                    }
                 </HorizCont>
 
                 <HorizCont>
@@ -68,25 +105,49 @@ export default function CaseStudy({
                         </CodeHeading>
                     </HalfCont>
                     <HalfCont>
-                        <img src='/frefurnish-iphone.png' width='80%'/>
+                        <img src='/frefurnish-iphone.png' width={'80%'}/>
                     </HalfCont>
                 </HorizCont>
 
                 <HorizCont>
-                    <HalfCont>
-                        <img src='/code-debugging.png' width='100%' style={{borderRadius:10}}/>
-                    </HalfCont>
-                    <HalfCont>
-                        <CodeHeading color={comp_themes[theme].text_color}>
-                            &lt;Debugging&gt; 
-                        </CodeHeading>
-                            <TextContent color={comp_themes[theme].text_color}>
-                                {data.debugging}
-                            </TextContent>
-                        <CodeHeading color={comp_themes[theme].text_color}>
-                            &lt;/Debugging&gt; 
-                        </CodeHeading>
-                    </HalfCont>
+                    {
+                        !belowThreshold ?
+
+                        <>
+                            <HalfCont>
+                                <img src='/code-debugging.png' width='100%' style={{borderRadius:10}}/>
+                            </HalfCont>
+                            <HalfCont>
+                                <CodeHeading color={comp_themes[theme].text_color}>
+                                    &lt;Debugging&gt; 
+                                </CodeHeading>
+                                    <TextContent color={comp_themes[theme].text_color}>
+                                        {data.debugging}
+                                    </TextContent>
+                                <CodeHeading color={comp_themes[theme].text_color}>
+                                    &lt;/Debugging&gt; 
+                                </CodeHeading>
+                            </HalfCont>
+                        </>
+                        :
+                        <>
+                            <HalfCont>
+                                <CodeHeading color={comp_themes[theme].text_color}>
+                                    &lt;Debugging&gt; 
+                                </CodeHeading>
+                                    <TextContent color={comp_themes[theme].text_color}>
+                                        {data.debugging}
+                                    </TextContent>
+                                <CodeHeading color={comp_themes[theme].text_color}>
+                                    &lt;/Debugging&gt; 
+                                </CodeHeading>
+                            </HalfCont>
+                            <HalfCont>
+                                <img src='/code-debugging.png' width='100%' style={{borderRadius:10}}/>
+                            </HalfCont>
+                        </>
+                    }
+                    
                 </HorizCont>
             </ContentCont>
         </Wrapper>
@@ -120,6 +181,11 @@ const HorizCont = styled.div`
     display: flex;
     flex: 1;
     background-color: ${({bgColor}) => bgColor};
+
+    @media screen and (max-width: 1200px)
+    {
+        flex-direction: column;
+    }
 `
 const ContentCont = styled.div`
     display: flex;
