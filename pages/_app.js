@@ -72,7 +72,7 @@ function MyApp({ Component, pageProps }) {
 
   const triggerMenu = () => {
       setMenuOpen(!menuOpen);
-      console.log(menuOpen);
+      // console.log(menuOpen);
   }
 
 

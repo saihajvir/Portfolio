@@ -19,7 +19,7 @@ export default function NavBar({
     const Toggle = () => {
         setTheme(theme === 'dark' ? 'default' : 'dark');
         setIsToggled(!isToggled);
-        console.log(isToggled, "toggle")
+        // console.log(isToggled, "toggle")
     }
     
     return <>

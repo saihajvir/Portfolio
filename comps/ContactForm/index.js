@@ -17,9 +17,10 @@ export default function ContactForm()
 
         emailjs.sendForm('service_besa9qc', 'template_7k4kdhr', form.current, 'user_MKhTzlM2pre8cQihbE1sL')
           .then((result) => {
-              console.log(result.text);
+            //   console.log(result.text);
+              alert("Your email has been sent!")
           }, (error) => {
-              console.log(error.text);
+            //   console.log(error.text);
           });
     }
 
@@ -63,7 +64,6 @@ export default function ContactForm()
 
                     whileHover={{scale: 1.1}}
                     whileTap={{ scale: 0.9 }}
-
                     type="submit" 
                     value="Send!"/>
             </FormCont>

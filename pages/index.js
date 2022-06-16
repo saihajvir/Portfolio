@@ -43,7 +43,7 @@ export default function Home({
         setBelowSecondThreshold(false);
       }
     }
-    
+    window.onload = resize()
     window.addEventListener('resize', resize);
   },[])
 

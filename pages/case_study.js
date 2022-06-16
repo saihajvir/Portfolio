@@ -23,6 +23,8 @@ export default function CaseStudy({
           setBelowThreshold(false);
         }
       }
+      
+      window.onload = resize()
       window.addEventListener('resize', resize);
     },[])
   
